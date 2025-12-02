@@ -1,2 +1,5 @@
 .venv/
-
+results/*
+!results/run_20251202_134243
+raw/
+data/

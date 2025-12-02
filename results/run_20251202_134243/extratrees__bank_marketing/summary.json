@@ -1,0 +1,164 @@
+{
+  "dataset_name": "bank_marketing",
+  "dataset_path": "data/bank_marketing.csv",
+  "target_col": "y",
+  "model_type": "extratrees",
+  "use_gpu": false,
+  "search_settings": {
+    "n_iter": 50,
+    "cv": 4,
+    "n_jobs": -1,
+    "random_state": 42,
+    "grid_path": "config/model_type_grid.json"
+  },
+  "label_classes": [
+    "no",
+    "yes"
+  ],
+  "dataset_profile": {
+    "n_samples": 45211,
+    "n_features": 16,
+    "n_num_features": 7,
+    "n_cat_features": 9,
+    "missing_fraction_mean": 0.0,
+    "missing_fraction_max": 0.0,
+    "class_counts": {
+      "no": 39922,
+      "yes": 5289
+    },
+    "class_proportions": {
+      "no": 0.8830151954170445,
+      "yes": 0.11698480458295547
+    },
+    "cat_cardinality_min": 2,
+    "cat_cardinality_median": 3.0,
+    "cat_cardinality_max": 12,
+    "num_abs_corr_mean": 0.11012735616329829,
+    "num_abs_corr_max": 0.39452101589456207
+  },
+  "cv_best_index": 35,
+  "cv_best_params": {
+    "model__n_estimators": 200,
+    "model__min_samples_split": 5,
+    "model__min_samples_leaf": 1,
+    "model__max_features": 0.5,
+    "model__max_depth": null
+  },
+  "cv_best_balanced_accuracy": 0.7159687907423682,
+  "top_configs": [
+    {
+      "rank": 1,
+      "mean_balanced_accuracy": 0.7159687907423682,
+      "std_balanced_accuracy": 0.004615352181456052,
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.5,
+        "model__max_depth": null
+      }
+    },
+    {
+      "rank": 2,
+      "mean_balanced_accuracy": 0.7153307809563938,
+      "std_balanced_accuracy": 0.006297930468656934,
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.5,
+        "model__max_depth": null
+      }
+    },
+    {
+      "rank": 3,
+      "mean_balanced_accuracy": 0.711114504064558,
+      "std_balanced_accuracy": 0.004453740315768436,
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 2,
+        "model__max_features": 0.5,
+        "model__max_depth": null
+      }
+    },
+    {
+      "rank": 4,
+      "mean_balanced_accuracy": 0.7029157090514894,
+      "std_balanced_accuracy": 0.004410095729477282,
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 4,
+        "model__max_features": 0.5,
+        "model__max_depth": null
+      }
+    },
+    {
+      "rank": 5,
+      "mean_balanced_accuracy": 0.7015365550626547,
+      "std_balanced_accuracy": 0.0020392159942141425,
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.5,
+        "model__max_depth": 20
+      }
+    }
+  ],
+  "worst_config": {
+    "rank": 50,
+    "mean_balanced_accuracy": 0.5686330395197683,
+    "std_balanced_accuracy": 0.00358123108151374,
+    "params": {
+      "model__n_estimators": 200,
+      "model__min_samples_split": 5,
+      "model__min_samples_leaf": 2,
+      "model__max_features": "log2",
+      "model__max_depth": 10
+    }
+  },
+  "metrics_train": {
+    "balanced_accuracy": 0.9917503340248595,
+    "accuracy": 0.9980314525226162,
+    "f1": 0.9915181549604498
+  },
+  "classification_report_train": {
+    "no": {
+      "precision": 0.9978253805584023,
+      "recall": 0.9999499023095035,
+      "f1-score": 0.9988865117792041,
+      "support": 39922.0
+    },
+    "yes": {
+      "precision": 0.9996156802459646,
+      "recall": 0.9835507657402155,
+      "f1-score": 0.9915181549604498,
+      "support": 5289.0
+    },
+    "accuracy": 0.9980314525226162,
+    "macro avg": {
+      "precision": 0.9987205304021834,
+      "recall": 0.9917503340248595,
+      "f1-score": 0.995202333369827,
+      "support": 45211.0
+    },
+    "weighted avg": {
+      "precision": 0.9980348184174966,
+      "recall": 0.9980314525226162,
+      "f1-score": 0.9980245259966646,
+      "support": 45211.0
+    }
+  },
+  "confusion_matrix_train": [
+    [
+      39920,
+      2
+    ],
+    [
+      87,
+      5202
+    ]
+  ]
+}

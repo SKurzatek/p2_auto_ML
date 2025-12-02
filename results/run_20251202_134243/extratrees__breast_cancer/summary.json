@@ -1,0 +1,164 @@
+{
+  "dataset_name": "breast_cancer",
+  "dataset_path": "data/breast_cancer.csv",
+  "target_col": "target",
+  "model_type": "extratrees",
+  "use_gpu": false,
+  "search_settings": {
+    "n_iter": 50,
+    "cv": 4,
+    "n_jobs": -1,
+    "random_state": 42,
+    "grid_path": "config/model_type_grid.json"
+  },
+  "label_classes": [
+    "B",
+    "M"
+  ],
+  "dataset_profile": {
+    "n_samples": 569,
+    "n_features": 31,
+    "n_num_features": 31,
+    "n_cat_features": 0,
+    "missing_fraction_mean": 0.0,
+    "missing_fraction_max": 0.0,
+    "class_counts": {
+      "B": 357,
+      "M": 212
+    },
+    "class_proportions": {
+      "B": 0.6274165202108963,
+      "M": 0.37258347978910367
+    },
+    "cat_cardinality_min": 0,
+    "cat_cardinality_median": 0.0,
+    "cat_cardinality_max": 0,
+    "num_abs_corr_mean": 0.45645167601517955,
+    "num_abs_corr_max": 0.7935660171412687
+  },
+  "cv_best_index": 20,
+  "cv_best_params": {
+    "model__n_estimators": 200,
+    "model__min_samples_split": 2,
+    "model__min_samples_leaf": 1,
+    "model__max_features": "log2",
+    "model__max_depth": null
+  },
+  "cv_best_balanced_accuracy": 0.957165276894448,
+  "top_configs": [
+    {
+      "rank": 1,
+      "mean_balanced_accuracy": 0.957165276894448,
+      "std_balanced_accuracy": 0.0252162444896633,
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": "log2",
+        "model__max_depth": null
+      }
+    },
+    {
+      "rank": 2,
+      "mean_balanced_accuracy": 0.9567303841895743,
+      "std_balanced_accuracy": 0.027829511711306727,
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.5,
+        "model__max_depth": 10
+      }
+    },
+    {
+      "rank": 3,
+      "mean_balanced_accuracy": 0.9553414953006855,
+      "std_balanced_accuracy": 0.026285729577215033,
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.5,
+        "model__max_depth": 20
+      }
+    },
+    {
+      "rank": 3,
+      "mean_balanced_accuracy": 0.9553414953006855,
+      "std_balanced_accuracy": 0.026285729577215033,
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.5,
+        "model__max_depth": null
+      }
+    },
+    {
+      "rank": 3,
+      "mean_balanced_accuracy": 0.9553414953006855,
+      "std_balanced_accuracy": 0.026285729577215033,
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.5,
+        "model__max_depth": 20
+      }
+    }
+  ],
+  "worst_config": {
+    "rank": 49,
+    "mean_balanced_accuracy": 0.9378624596612725,
+    "std_balanced_accuracy": 0.03362200135201547,
+    "params": {
+      "model__n_estimators": 200,
+      "model__min_samples_split": 10,
+      "model__min_samples_leaf": 4,
+      "model__max_features": "log2",
+      "model__max_depth": 10
+    }
+  },
+  "metrics_train": {
+    "balanced_accuracy": 1.0,
+    "accuracy": 1.0,
+    "f1": 1.0
+  },
+  "classification_report_train": {
+    "B": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 357.0
+    },
+    "M": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 212.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 569.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 569.0
+    }
+  },
+  "confusion_matrix_train": [
+    [
+      357,
+      0
+    ],
+    [
+      0,
+      212
+    ]
+  ]
+}

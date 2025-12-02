@@ -1,0 +1,171 @@
+{
+  "dataset_name": "bank_marketing",
+  "dataset_path": "data/bank_marketing.csv",
+  "target_col": "y",
+  "model_type": "xgb",
+  "use_gpu": true,
+  "search_settings": {
+    "n_iter": 50,
+    "cv": 4,
+    "n_jobs": 1,
+    "random_state": 42,
+    "grid_path": "config/model_type_grid.json"
+  },
+  "label_classes": [
+    "no",
+    "yes"
+  ],
+  "dataset_profile": {
+    "n_samples": 45211,
+    "n_features": 16,
+    "n_num_features": 7,
+    "n_cat_features": 9,
+    "missing_fraction_mean": 0.0,
+    "missing_fraction_max": 0.0,
+    "class_counts": {
+      "no": 39922,
+      "yes": 5289
+    },
+    "class_proportions": {
+      "no": 0.8830151954170445,
+      "yes": 0.11698480458295547
+    },
+    "cat_cardinality_min": 2,
+    "cat_cardinality_median": 3.0,
+    "cat_cardinality_max": 12,
+    "num_abs_corr_mean": 0.11012735616329829,
+    "num_abs_corr_max": 0.39452101589456207
+  },
+  "cv_best_index": 27,
+  "cv_best_params": {
+    "model__subsample": 0.6,
+    "model__reg_lambda": 1.0,
+    "model__n_estimators": 200,
+    "model__max_depth": 7,
+    "model__learning_rate": 0.1,
+    "model__colsample_bytree": 1.0
+  },
+  "cv_best_balanced_accuracy": 0.7340138509554108,
+  "top_configs": [
+    {
+      "rank": 1,
+      "mean_balanced_accuracy": 0.7340138509554108,
+      "std_balanced_accuracy": 0.006226037688047552,
+      "params": {
+        "model__subsample": 0.6,
+        "model__reg_lambda": 1.0,
+        "model__n_estimators": 200,
+        "model__max_depth": 7,
+        "model__learning_rate": 0.1,
+        "model__colsample_bytree": 1.0
+      }
+    },
+    {
+      "rank": 2,
+      "mean_balanced_accuracy": 0.7339259532957497,
+      "std_balanced_accuracy": 0.004278868608095494,
+      "params": {
+        "model__subsample": 0.8,
+        "model__reg_lambda": 1.0,
+        "model__n_estimators": 300,
+        "model__max_depth": 7,
+        "model__learning_rate": 0.1,
+        "model__colsample_bytree": 1.0
+      }
+    },
+    {
+      "rank": 3,
+      "mean_balanced_accuracy": 0.7326895695455954,
+      "std_balanced_accuracy": 0.005096364375123978,
+      "params": {
+        "model__subsample": 0.8,
+        "model__reg_lambda": 0.0,
+        "model__n_estimators": 200,
+        "model__max_depth": 7,
+        "model__learning_rate": 0.1,
+        "model__colsample_bytree": 1.0
+      }
+    },
+    {
+      "rank": 4,
+      "mean_balanced_accuracy": 0.7316283130275953,
+      "std_balanced_accuracy": 0.0050883594043482725,
+      "params": {
+        "model__subsample": 0.6,
+        "model__reg_lambda": 1.0,
+        "model__n_estimators": 300,
+        "model__max_depth": 7,
+        "model__learning_rate": 0.1,
+        "model__colsample_bytree": 1.0
+      }
+    },
+    {
+      "rank": 5,
+      "mean_balanced_accuracy": 0.7310445980703918,
+      "std_balanced_accuracy": 0.009839768782947615,
+      "params": {
+        "model__subsample": 1.0,
+        "model__reg_lambda": 0.0,
+        "model__n_estimators": 300,
+        "model__max_depth": 7,
+        "model__learning_rate": 0.1,
+        "model__colsample_bytree": 1.0
+      }
+    }
+  ],
+  "worst_config": {
+    "rank": 50,
+    "mean_balanced_accuracy": 0.5683738566525248,
+    "std_balanced_accuracy": 0.004089795006072837,
+    "params": {
+      "model__subsample": 0.6,
+      "model__reg_lambda": 0.0,
+      "model__n_estimators": 200,
+      "model__max_depth": 3,
+      "model__learning_rate": 0.01,
+      "model__colsample_bytree": 0.6
+    }
+  },
+  "metrics_train": {
+    "balanced_accuracy": 0.8591167244836071,
+    "accuracy": 0.9564265333657738,
+    "f1": 0.7971999176446366
+  },
+  "classification_report_train": {
+    "no": {
+      "precision": 0.9652576864610406,
+      "recall": 0.9861479885777266,
+      "f1-score": 0.9755910194776231,
+      "support": 39922.0
+    },
+    "yes": {
+      "precision": 0.8750282485875707,
+      "recall": 0.7320854603894876,
+      "f1-score": 0.7971999176446366,
+      "support": 5289.0
+    },
+    "accuracy": 0.9564265333657738,
+    "macro avg": {
+      "precision": 0.9201429675243056,
+      "recall": 0.8591167244836071,
+      "f1-score": 0.8863954685611298,
+      "support": 45211.0
+    },
+    "weighted avg": {
+      "precision": 0.9547022133037827,
+      "recall": 0.9564265333657738,
+      "f1-score": 0.9547219712903531,
+      "support": 45211.0
+    }
+  },
+  "confusion_matrix_train": [
+    [
+      39369,
+      553
+    ],
+    [
+      1417,
+      3872
+    ]
+  ]
+}

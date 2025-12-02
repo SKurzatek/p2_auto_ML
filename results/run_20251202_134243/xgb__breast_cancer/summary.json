@@ -1,0 +1,171 @@
+{
+  "dataset_name": "breast_cancer",
+  "dataset_path": "data/breast_cancer.csv",
+  "target_col": "target",
+  "model_type": "xgb",
+  "use_gpu": true,
+  "search_settings": {
+    "n_iter": 50,
+    "cv": 4,
+    "n_jobs": 1,
+    "random_state": 42,
+    "grid_path": "config/model_type_grid.json"
+  },
+  "label_classes": [
+    "B",
+    "M"
+  ],
+  "dataset_profile": {
+    "n_samples": 569,
+    "n_features": 31,
+    "n_num_features": 31,
+    "n_cat_features": 0,
+    "missing_fraction_mean": 0.0,
+    "missing_fraction_max": 0.0,
+    "class_counts": {
+      "B": 357,
+      "M": 212
+    },
+    "class_proportions": {
+      "B": 0.6274165202108963,
+      "M": 0.37258347978910367
+    },
+    "cat_cardinality_min": 0,
+    "cat_cardinality_median": 0.0,
+    "cat_cardinality_max": 0,
+    "num_abs_corr_mean": 0.45645167601517955,
+    "num_abs_corr_max": 0.7935660171412687
+  },
+  "cv_best_index": 45,
+  "cv_best_params": {
+    "model__subsample": 0.6,
+    "model__reg_lambda": 0.0,
+    "model__n_estimators": 300,
+    "model__max_depth": 3,
+    "model__learning_rate": 0.05,
+    "model__colsample_bytree": 0.6
+  },
+  "cv_best_balanced_accuracy": 0.9609282618425081,
+  "top_configs": [
+    {
+      "rank": 1,
+      "mean_balanced_accuracy": 0.9609282618425081,
+      "std_balanced_accuracy": 0.027246473655483106,
+      "params": {
+        "model__subsample": 0.6,
+        "model__reg_lambda": 0.0,
+        "model__n_estimators": 300,
+        "model__max_depth": 3,
+        "model__learning_rate": 0.05,
+        "model__colsample_bytree": 0.6
+      }
+    },
+    {
+      "rank": 2,
+      "mean_balanced_accuracy": 0.9557919934986927,
+      "std_balanced_accuracy": 0.024188856329970927,
+      "params": {
+        "model__subsample": 0.6,
+        "model__reg_lambda": 0.0,
+        "model__n_estimators": 200,
+        "model__max_depth": 7,
+        "model__learning_rate": 0.05,
+        "model__colsample_bytree": 0.6
+      }
+    },
+    {
+      "rank": 3,
+      "mean_balanced_accuracy": 0.9557763880055591,
+      "std_balanced_accuracy": 0.03626029197710211,
+      "params": {
+        "model__subsample": 1.0,
+        "model__reg_lambda": 1.0,
+        "model__n_estimators": 200,
+        "model__max_depth": 5,
+        "model__learning_rate": 0.05,
+        "model__colsample_bytree": 0.6
+      }
+    },
+    {
+      "rank": 4,
+      "mean_balanced_accuracy": 0.9534491084257886,
+      "std_balanced_accuracy": 0.024183348937290582,
+      "params": {
+        "model__subsample": 0.6,
+        "model__reg_lambda": 5.0,
+        "model__n_estimators": 300,
+        "model__max_depth": 5,
+        "model__learning_rate": 0.1,
+        "model__colsample_bytree": 1.0
+      }
+    },
+    {
+      "rank": 5,
+      "mean_balanced_accuracy": 0.9534335029326549,
+      "std_balanced_accuracy": 0.027041792086589102,
+      "params": {
+        "model__subsample": 0.6,
+        "model__reg_lambda": 5.0,
+        "model__n_estimators": 300,
+        "model__max_depth": 7,
+        "model__learning_rate": 0.05,
+        "model__colsample_bytree": 1.0
+      }
+    }
+  ],
+  "worst_config": {
+    "rank": 50,
+    "mean_balanced_accuracy": 0.9374275669563987,
+    "std_balanced_accuracy": 0.03359397352813423,
+    "params": {
+      "model__subsample": 1.0,
+      "model__reg_lambda": 0.0,
+      "model__n_estimators": 200,
+      "model__max_depth": 7,
+      "model__learning_rate": 0.01,
+      "model__colsample_bytree": 1.0
+    }
+  },
+  "metrics_train": {
+    "balanced_accuracy": 1.0,
+    "accuracy": 1.0,
+    "f1": 1.0
+  },
+  "classification_report_train": {
+    "B": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 357.0
+    },
+    "M": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 212.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 569.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 569.0
+    }
+  },
+  "confusion_matrix_train": [
+    [
+      357,
+      0
+    ],
+    [
+      0,
+      212
+    ]
+  ]
+}
