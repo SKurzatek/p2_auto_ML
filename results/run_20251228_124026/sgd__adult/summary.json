@@ -1,0 +1,162 @@
+{
+  "dataset_name": "adult",
+  "dataset_path": "data/adult.csv",
+  "target_col": "income",
+  "model_type": "sgd",
+  "label_classes": [
+    "<=50K",
+    ">50K"
+  ],
+  "dataset_profile": {
+    "n_samples": 48842,
+    "n_features": 14,
+    "n_num_features": 6,
+    "n_cat_features": 8,
+    "missing_fraction_mean": 0.009454684785342825,
+    "missing_fraction_max": 0.05751197739650301,
+    "class_counts": {
+      "<=50K": 37155,
+      ">50K": 11687
+    },
+    "class_proportions": {
+      "<=50K": 0.7607182343065395,
+      ">50K": 0.23928176569346055
+    },
+    "cat_cardinality_min": 2,
+    "cat_cardinality_median": 7.5,
+    "cat_cardinality_max": 41,
+    "num_abs_corr_mean": 0.19459595461037013,
+    "num_abs_corr_max": 0.3326131306661437
+  },
+  "search_sample": {
+    "n_rows_used": 9000,
+    "cv_max_rows": 9000,
+    "sampling": "stratified"
+  },
+  "search_settings": {
+    "grid_path": "config/model_type_grid.json",
+    "n_combinations_in_grid": 48,
+    "n_iter_used": 20,
+    "cv_folds": 3,
+    "n_jobs": -1,
+    "random_state": 42
+  },
+  "cv_best_index": 10,
+  "cv_best_params": {
+    "model__penalty": "elasticnet",
+    "model__loss": "hinge",
+    "model__l1_ratio": 0.5,
+    "model__alpha": 1e-06
+  },
+  "cv_best_balanced_accuracy": 0.7785623144108712,
+  "top_configs": [
+    {
+      "rank": 1,
+      "mean_balanced_accuracy": 0.7785623144108712,
+      "std_balanced_accuracy": 0.014507284754259824,
+      "params": {
+        "model__penalty": "elasticnet",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.5,
+        "model__alpha": 1e-06
+      }
+    },
+    {
+      "rank": 2,
+      "mean_balanced_accuracy": 0.7696267751251774,
+      "std_balanced_accuracy": 0.023109373625144154,
+      "params": {
+        "model__penalty": "elasticnet",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 0.0001
+      }
+    },
+    {
+      "rank": 3,
+      "mean_balanced_accuracy": 0.7636911780622156,
+      "std_balanced_accuracy": 0.018927767860248797,
+      "params": {
+        "model__penalty": "l1",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 0.0001
+      }
+    },
+    {
+      "rank": 4,
+      "mean_balanced_accuracy": 0.7620803315601409,
+      "std_balanced_accuracy": 0.04350725961082095,
+      "params": {
+        "model__penalty": "l2",
+        "model__loss": "log_loss",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 1e-05
+      }
+    },
+    {
+      "rank": 5,
+      "mean_balanced_accuracy": 0.758575245126162,
+      "std_balanced_accuracy": 0.03265580477113133,
+      "params": {
+        "model__penalty": "l2",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 1e-05
+      }
+    }
+  ],
+  "worst_config": {
+    "rank": 20,
+    "mean_balanced_accuracy": 0.6962319456210121,
+    "std_balanced_accuracy": 0.030491472349922253,
+    "params": {
+      "model__penalty": "l2",
+      "model__loss": "hinge",
+      "model__l1_ratio": 0.5,
+      "model__alpha": 1e-06
+    }
+  },
+  "metrics_train": {
+    "balanced_accuracy": 0.698255370641173,
+    "accuracy": 0.8117777777777778,
+    "f1_macro": 0.7154763827855262
+  },
+  "classification_report_train": {
+    "<=50K": {
+      "precision": 0.8485791610284168,
+      "recall": 0.916009348524686,
+      "f1-score": 0.8810059005338579,
+      "support": 6846.0
+    },
+    ">50K": {
+      "precision": 0.6428571428571429,
+      "recall": 0.4805013927576602,
+      "f1-score": 0.5499468650371945,
+      "support": 2154.0
+    },
+    "accuracy": 0.8117777777777778,
+    "macro avg": {
+      "precision": 0.7457181519427798,
+      "recall": 0.698255370641173,
+      "f1-score": 0.7154763827855262,
+      "support": 9000.0
+    },
+    "weighted avg": {
+      "precision": 0.7993430246794253,
+      "recall": 0.8117777777777778,
+      "f1-score": 0.801772438038323,
+      "support": 9000.0
+    }
+  },
+  "confusion_matrix_train": [
+    [
+      6271,
+      575
+    ],
+    [
+      1119,
+      1035
+    ]
+  ]
+}

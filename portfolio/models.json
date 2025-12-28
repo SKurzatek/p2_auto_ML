@@ -1,0 +1,450 @@
+{
+  "created_at": "2025-12-28T13:36:36",
+  "n_models": 45,
+  "models": [
+    {
+      "id": "m0001",
+      "model_type": "linear_svc",
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 0.01
+      }
+    },
+    {
+      "id": "m0002",
+      "model_type": "linear_svc",
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 0.1
+      }
+    },
+    {
+      "id": "m0003",
+      "model_type": "linear_svc",
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 1.0
+      }
+    },
+    {
+      "id": "m0004",
+      "model_type": "linear_svc",
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 10.0
+      }
+    },
+    {
+      "id": "m0005",
+      "model_type": "linear_svc",
+      "params": {
+        "model__class_weight": null,
+        "model__C": 0.01
+      }
+    },
+    {
+      "id": "m0006",
+      "model_type": "logreg",
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 0.01
+      }
+    },
+    {
+      "id": "m0007",
+      "model_type": "logreg",
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 0.1
+      }
+    },
+    {
+      "id": "m0008",
+      "model_type": "logreg",
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 1.0
+      }
+    },
+    {
+      "id": "m0009",
+      "model_type": "logreg",
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 10.0
+      }
+    },
+    {
+      "id": "m0010",
+      "model_type": "logreg",
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 0.001
+      }
+    },
+    {
+      "id": "m0011",
+      "model_type": "extratrees",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.5,
+        "model__max_depth": 20
+      }
+    },
+    {
+      "id": "m0012",
+      "model_type": "extratrees",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.5,
+        "model__max_depth": null
+      }
+    },
+    {
+      "id": "m0013",
+      "model_type": "extratrees",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 2,
+        "model__max_features": 0.5,
+        "model__max_depth": null
+      }
+    },
+    {
+      "id": "m0014",
+      "model_type": "extratrees",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.5,
+        "model__max_depth": 10
+      }
+    },
+    {
+      "id": "m0015",
+      "model_type": "extratrees",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": "sqrt",
+        "model__max_depth": null
+      }
+    },
+    {
+      "id": "m0016",
+      "model_type": "rf",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 4,
+        "model__max_features": 0.5,
+        "model__max_depth": null
+      }
+    },
+    {
+      "id": "m0017",
+      "model_type": "rf",
+      "params": {
+        "model__n_estimators": 100,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.5,
+        "model__max_depth": 10
+      }
+    },
+    {
+      "id": "m0018",
+      "model_type": "rf",
+      "params": {
+        "model__n_estimators": 100,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 4,
+        "model__max_features": 0.5,
+        "model__max_depth": 10
+      }
+    },
+    {
+      "id": "m0019",
+      "model_type": "rf",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": "log2",
+        "model__max_depth": null
+      }
+    },
+    {
+      "id": "m0020",
+      "model_type": "rf",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 10,
+        "model__min_samples_leaf": 1,
+        "model__max_features": "log2",
+        "model__max_depth": 10
+      }
+    },
+    {
+      "id": "m0021",
+      "model_type": "sgd",
+      "params": {
+        "model__penalty": "l1",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 0.0001
+      }
+    },
+    {
+      "id": "m0022",
+      "model_type": "sgd",
+      "params": {
+        "model__penalty": "l1",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.5,
+        "model__alpha": 1e-05
+      }
+    },
+    {
+      "id": "m0023",
+      "model_type": "sgd",
+      "params": {
+        "model__penalty": "l2",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 1e-05
+      }
+    },
+    {
+      "id": "m0024",
+      "model_type": "sgd",
+      "params": {
+        "model__penalty": "l1",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 1e-05
+      }
+    },
+    {
+      "id": "m0025",
+      "model_type": "sgd",
+      "params": {
+        "model__penalty": "l1",
+        "model__loss": "log_loss",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 1e-06
+      }
+    },
+    {
+      "id": "m0026",
+      "model_type": "linear_svc",
+      "params": {
+        "model__class_weight": null,
+        "model__C": 1.0
+      }
+    },
+    {
+      "id": "m0027",
+      "model_type": "logreg",
+      "params": {
+        "model__class_weight": null,
+        "model__C": 1.0
+      }
+    },
+    {
+      "id": "m0028",
+      "model_type": "extratrees",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 2,
+        "model__max_features": 0.5,
+        "model__max_depth": 10
+      }
+    },
+    {
+      "id": "m0029",
+      "model_type": "rf",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 4,
+        "model__max_features": "sqrt",
+        "model__max_depth": null
+      }
+    },
+    {
+      "id": "m0030",
+      "model_type": "sgd",
+      "params": {
+        "model__penalty": "elasticnet",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.5,
+        "model__alpha": 1e-06
+      }
+    },
+    {
+      "id": "m0031",
+      "model_type": "logreg",
+      "params": {
+        "model__class_weight": null,
+        "model__C": 10.0
+      }
+    },
+    {
+      "id": "m0032",
+      "model_type": "extratrees",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 2,
+        "model__max_features": "sqrt",
+        "model__max_depth": 10
+      }
+    },
+    {
+      "id": "m0033",
+      "model_type": "rf",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": "sqrt",
+        "model__max_depth": 10
+      }
+    },
+    {
+      "id": "m0034",
+      "model_type": "sgd",
+      "params": {
+        "model__penalty": "elasticnet",
+        "model__loss": "log_loss",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 1e-05
+      }
+    },
+    {
+      "id": "m0035",
+      "model_type": "rf",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": "sqrt",
+        "model__max_depth": 5
+      }
+    },
+    {
+      "id": "m0036",
+      "model_type": "sgd",
+      "params": {
+        "model__penalty": "l2",
+        "model__loss": "log_loss",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 0.001
+      }
+    },
+    {
+      "id": "m0037",
+      "model_type": "rf",
+      "params": {
+        "model__n_estimators": 100,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 2,
+        "model__max_features": "log2",
+        "model__max_depth": null
+      }
+    },
+    {
+      "id": "m0038",
+      "model_type": "sgd",
+      "params": {
+        "model__penalty": "l2",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.5,
+        "model__alpha": 1e-06
+      }
+    },
+    {
+      "id": "m0039",
+      "model_type": "rf",
+      "params": {
+        "model__n_estimators": 100,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 4,
+        "model__max_features": "log2",
+        "model__max_depth": null
+      }
+    },
+    {
+      "id": "m0040",
+      "model_type": "sgd",
+      "params": {
+        "model__penalty": "elasticnet",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 0.0001
+      }
+    },
+    {
+      "id": "m0041",
+      "model_type": "rf",
+      "params": {
+        "model__n_estimators": 100,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 2,
+        "model__max_features": 0.5,
+        "model__max_depth": 5
+      }
+    },
+    {
+      "id": "m0042",
+      "model_type": "sgd",
+      "params": {
+        "model__penalty": "l2",
+        "model__loss": "log_loss",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 1e-05
+      }
+    },
+    {
+      "id": "m0043",
+      "model_type": "rf",
+      "params": {
+        "model__n_estimators": 100,
+        "model__min_samples_split": 10,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.5,
+        "model__max_depth": 5
+      }
+    },
+    {
+      "id": "m0044",
+      "model_type": "sgd",
+      "params": {
+        "model__penalty": "l2",
+        "model__loss": "log_loss",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 1e-06
+      }
+    },
+    {
+      "id": "m0045",
+      "model_type": "sgd",
+      "params": {
+        "model__penalty": "l2",
+        "model__loss": "log_loss",
+        "model__l1_ratio": 0.5,
+        "model__alpha": 1e-06
+      }
+    }
+  ],
+  "source_run_dir": "results/run_20251228_124026"
+}

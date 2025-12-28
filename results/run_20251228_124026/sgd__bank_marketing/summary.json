@@ -1,0 +1,162 @@
+{
+  "dataset_name": "bank_marketing",
+  "dataset_path": "data/bank_marketing.csv",
+  "target_col": "y",
+  "model_type": "sgd",
+  "label_classes": [
+    "no",
+    "yes"
+  ],
+  "dataset_profile": {
+    "n_samples": 45211,
+    "n_features": 16,
+    "n_num_features": 7,
+    "n_cat_features": 9,
+    "missing_fraction_mean": 0.0,
+    "missing_fraction_max": 0.0,
+    "class_counts": {
+      "no": 39922,
+      "yes": 5289
+    },
+    "class_proportions": {
+      "no": 0.8830151954170445,
+      "yes": 0.11698480458295547
+    },
+    "cat_cardinality_min": 2,
+    "cat_cardinality_median": 3.0,
+    "cat_cardinality_max": 12,
+    "num_abs_corr_mean": 0.11012735616329829,
+    "num_abs_corr_max": 0.39452101589456207
+  },
+  "search_sample": {
+    "n_rows_used": 9000,
+    "cv_max_rows": 9000,
+    "sampling": "stratified"
+  },
+  "search_settings": {
+    "grid_path": "config/model_type_grid.json",
+    "n_combinations_in_grid": 48,
+    "n_iter_used": 20,
+    "cv_folds": 3,
+    "n_jobs": -1,
+    "random_state": 42
+  },
+  "cv_best_index": 6,
+  "cv_best_params": {
+    "model__penalty": "l2",
+    "model__loss": "hinge",
+    "model__l1_ratio": 0.15,
+    "model__alpha": 1e-05
+  },
+  "cv_best_balanced_accuracy": 0.698838135984229,
+  "top_configs": [
+    {
+      "rank": 1,
+      "mean_balanced_accuracy": 0.698838135984229,
+      "std_balanced_accuracy": 0.07846465672271605,
+      "params": {
+        "model__penalty": "l2",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 1e-05
+      }
+    },
+    {
+      "rank": 2,
+      "mean_balanced_accuracy": 0.698377821443129,
+      "std_balanced_accuracy": 0.00848934968486415,
+      "params": {
+        "model__penalty": "l1",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.5,
+        "model__alpha": 1e-05
+      }
+    },
+    {
+      "rank": 2,
+      "mean_balanced_accuracy": 0.698377821443129,
+      "std_balanced_accuracy": 0.00848934968486415,
+      "params": {
+        "model__penalty": "l1",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 1e-05
+      }
+    },
+    {
+      "rank": 4,
+      "mean_balanced_accuracy": 0.6836187175938025,
+      "std_balanced_accuracy": 0.018171079897485332,
+      "params": {
+        "model__penalty": "l2",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.5,
+        "model__alpha": 1e-06
+      }
+    },
+    {
+      "rank": 5,
+      "mean_balanced_accuracy": 0.6708578950934557,
+      "std_balanced_accuracy": 0.012840672836329945,
+      "params": {
+        "model__penalty": "elasticnet",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 0.0001
+      }
+    }
+  ],
+  "worst_config": {
+    "rank": 19,
+    "mean_balanced_accuracy": 0.5911180803593035,
+    "std_balanced_accuracy": 0.0049557781870501975,
+    "params": {
+      "model__penalty": "l1",
+      "model__loss": "hinge",
+      "model__l1_ratio": 0.5,
+      "model__alpha": 0.001
+    }
+  },
+  "metrics_train": {
+    "balanced_accuracy": 0.6276066117515722,
+    "accuracy": 0.8966666666666666,
+    "f1_macro": 0.6642579884937964
+  },
+  "classification_report_train": {
+    "no": {
+      "precision": 0.9107832806462943,
+      "recall": 0.9788599471498679,
+      "f1-score": 0.9435953420669578,
+      "support": 7947.0
+    },
+    "yes": {
+      "precision": 0.6339869281045751,
+      "recall": 0.27635327635327633,
+      "f1-score": 0.38492063492063494,
+      "support": 1053.0
+    },
+    "accuracy": 0.8966666666666666,
+    "macro avg": {
+      "precision": 0.7723851043754347,
+      "recall": 0.6276066117515722,
+      "f1-score": 0.6642579884937964,
+      "support": 9000.0
+    },
+    "weighted avg": {
+      "precision": 0.8783981073989131,
+      "recall": 0.8966666666666666,
+      "f1-score": 0.878230401330838,
+      "support": 9000.0
+    }
+  },
+  "confusion_matrix_train": [
+    [
+      7779,
+      168
+    ],
+    [
+      762,
+      291
+    ]
+  ]
+}

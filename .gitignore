@@ -1,5 +1,10 @@
 .venv/
 results/*
 !results/run_20251202_134243
+!results/run_20251228_124026
 raw/
 data/
+random_search_OLD.py
+test_datasets/*
+model_type_grid_old.json
+automl_old.py

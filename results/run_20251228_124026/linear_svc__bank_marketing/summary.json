@@ -1,0 +1,148 @@
+{
+  "dataset_name": "bank_marketing",
+  "dataset_path": "data/bank_marketing.csv",
+  "target_col": "y",
+  "model_type": "linear_svc",
+  "label_classes": [
+    "no",
+    "yes"
+  ],
+  "dataset_profile": {
+    "n_samples": 45211,
+    "n_features": 16,
+    "n_num_features": 7,
+    "n_cat_features": 9,
+    "missing_fraction_mean": 0.0,
+    "missing_fraction_max": 0.0,
+    "class_counts": {
+      "no": 39922,
+      "yes": 5289
+    },
+    "class_proportions": {
+      "no": 0.8830151954170445,
+      "yes": 0.11698480458295547
+    },
+    "cat_cardinality_min": 2,
+    "cat_cardinality_median": 3.0,
+    "cat_cardinality_max": 12,
+    "num_abs_corr_mean": 0.11012735616329829,
+    "num_abs_corr_max": 0.39452101589456207
+  },
+  "search_sample": {
+    "n_rows_used": 9000,
+    "cv_max_rows": 9000,
+    "sampling": "stratified"
+  },
+  "search_settings": {
+    "grid_path": "config/model_type_grid.json",
+    "n_combinations_in_grid": 8,
+    "n_iter_used": 8,
+    "cv_folds": 3,
+    "n_jobs": -1,
+    "random_state": 42
+  },
+  "cv_best_index": 1,
+  "cv_best_params": {
+    "model__class_weight": "balanced",
+    "model__C": 0.01
+  },
+  "cv_best_balanced_accuracy": 0.8260715487971056,
+  "top_configs": [
+    {
+      "rank": 1,
+      "mean_balanced_accuracy": 0.8260715487971056,
+      "std_balanced_accuracy": 0.008921028921297706,
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 0.01
+      }
+    },
+    {
+      "rank": 2,
+      "mean_balanced_accuracy": 0.8231192978267345,
+      "std_balanced_accuracy": 0.011270124814504923,
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 0.1
+      }
+    },
+    {
+      "rank": 3,
+      "mean_balanced_accuracy": 0.8230848817862785,
+      "std_balanced_accuracy": 0.012052245584307496,
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 10.0
+      }
+    },
+    {
+      "rank": 3,
+      "mean_balanced_accuracy": 0.8230848817862785,
+      "std_balanced_accuracy": 0.012052245584307496,
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 1.0
+      }
+    },
+    {
+      "rank": 5,
+      "mean_balanced_accuracy": 0.6320973672804552,
+      "std_balanced_accuracy": 0.011126188426927893,
+      "params": {
+        "model__class_weight": null,
+        "model__C": 0.1
+      }
+    }
+  ],
+  "worst_config": {
+    "rank": 8,
+    "mean_balanced_accuracy": 0.6165762707854063,
+    "std_balanced_accuracy": 0.006489576188096393,
+    "params": {
+      "model__class_weight": null,
+      "model__C": 0.01
+    }
+  },
+  "metrics_train": {
+    "balanced_accuracy": 0.8336285584303704,
+    "accuracy": 0.8502222222222222,
+    "f1_macro": 0.7344867562466739
+  },
+  "classification_report_train": {
+    "no": {
+      "precision": 0.9716940671908506,
+      "recall": 0.8552913048949289,
+      "f1-score": 0.9097845000669255,
+      "support": 7947.0
+    },
+    "yes": {
+      "precision": 0.42643391521197005,
+      "recall": 0.811965811965812,
+      "f1-score": 0.5591890124264225,
+      "support": 1053.0
+    },
+    "accuracy": 0.8502222222222222,
+    "macro avg": {
+      "precision": 0.6990639912014103,
+      "recall": 0.8336285584303704,
+      "f1-score": 0.7344867562466739,
+      "support": 9000.0
+    },
+    "weighted avg": {
+      "precision": 0.9078986294093215,
+      "recall": 0.8502222222222222,
+      "f1-score": 0.8687648280129866,
+      "support": 9000.0
+    }
+  },
+  "confusion_matrix_train": [
+    [
+      6797,
+      1150
+    ],
+    [
+      198,
+      855
+    ]
+  ]
+}
