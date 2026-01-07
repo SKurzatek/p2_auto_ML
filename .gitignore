@@ -8,3 +8,5 @@ random_search_OLD.py
 test_datasets/*
 model_type_grid_old.json
 automl_old.py
+.vscode/
+__pycache__/
