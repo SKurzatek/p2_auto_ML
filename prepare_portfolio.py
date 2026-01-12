@@ -345,9 +345,9 @@ def build_portfolio(
             continue
         rich_models.append(
             {
-                "id": None,
+                "name": None,
                 "signature": sig,
-                "model_type": entry["model_type"],
+                "class": entry["model_type"],
                 "params": entry["params"],
                 "aggregate": {
                     "datasets_supported": len(entry["evidence"]),
@@ -420,8 +420,8 @@ def build_portfolio(
         m["id"] = mid
         models_list.append(
             {
-                "id": mid,
-                "model_type": m["model_type"],
+                "name": mid,
+                "class": m["model_type"],
                 "params": m["params"],
             }
         )

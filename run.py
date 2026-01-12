@@ -5,11 +5,11 @@ from datetime import datetime
 
 # CPU-only models compatible with config/model_type_grid.json
 MODEL_TYPES = [
-    "logreg",
-    "linear_svc",
-    "sgd",
-    "rf",
-    "extratrees",
+    "sklearn.linear_model.LogisticRegression",
+    "sklearn.svm.LinearSVC",
+    "sklearn.linear_model.SGDClassifier",
+    "sklearn.ensemble.RandomForestClassifier",
+    "sklearn.ensemble.ExtraTreesClassifier",
 ]
 
 # Datasets present in ./data
@@ -30,8 +30,8 @@ CV_FOLDS = 3
 CV_MAX_ROWS = 9000
 N_ITER_CAP = 20
 
-N_JOBS = -1
-VERBOSE = 1
+N_JOBS = 1
+VERBOSE = 3
 RANDOM_STATE = 42
 
 

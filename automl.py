@@ -19,13 +19,19 @@ from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.compose import ColumnTransformer, make_column_selector
 from sklearn.ensemble import ExtraTreesClassifier, RandomForestClassifier
 from sklearn.linear_model import LogisticRegression, SGDClassifier
-from sklearn.metrics import balanced_accuracy_score
 from sklearn.model_selection import StratifiedKFold, train_test_split
 from sklearn.neural_network import MLPClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder, StandardScaler
 from sklearn.svm import LinearSVC
-
+from sklearn.model_selection import cross_val_score
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import make_scorer, balanced_accuracy_score
+from sklearn.feature_selection import mutual_info_classif
+from scipy.stats import entropy
+from sklearn.decomposition import PCA
 
 # ===================== Stage: preprocessing =====================
 
@@ -105,39 +111,43 @@ def compute_dataset_profile_xy(X: pd.DataFrame, y: pd.Series) -> Dict[str, Any]:
     profile["n_classes"] = int(len(class_counts))
 
     props = list(class_props.values())
-    if len(props) >= 2 and min(props) > 0:
-        profile["imbalance_ratio"] = float(max(props) / min(props))
-    else:
-        profile["imbalance_ratio"] = float("inf")
+    profile["imbalance_ratio"] = float(max(props) / min(props)) if len(props) >= 2 and min(props) > 0 else float("inf")
+    prep = build_two_stage_preprocessor()
+    try:
+        le = LabelEncoder()
+        y_encoded = le.fit_transform(y.astype(str))
+        
+        X_proc = prep.fit_transform(X, y_encoded)
+        if sparse.issparse(X_proc):
+            X_proc = X_proc.toarray()
+            
+        scorer = make_scorer(balanced_accuracy_score)
 
-    if cat_cols:
-        card = [X[c].nunique(dropna=True) for c in cat_cols]
-        profile["cat_cardinality_min"] = int(np.min(card))
-        profile["cat_cardinality_median"] = float(np.median(card))
-        profile["cat_cardinality_max"] = int(np.max(card))
-    else:
-        profile["cat_cardinality_min"] = 0
-        profile["cat_cardinality_median"] = 0.0
-        profile["cat_cardinality_max"] = 0
+        stump = DecisionTreeClassifier(max_depth=1, random_state=42)
+        profile["landmark_decision_stump"] = float(np.mean(cross_val_score(stump, X_proc, y_encoded, cv=3, scoring=scorer)))
 
-    if num_cols:
-        try:
-            le = LabelEncoder().fit(y.astype(str))
-            y_enc = pd.Series(le.transform(y.astype(str)), index=y.index)
-            with np.errstate(invalid="ignore", divide="ignore"):
-                corr = X[num_cols].corrwith(y_enc).dropna()
-            if len(corr):
-                profile["num_abs_corr_mean"] = float(corr.abs().mean())
-                profile["num_abs_corr_max"] = float(corr.abs().max())
-            else:
-                profile["num_abs_corr_mean"] = 0.0
-                profile["num_abs_corr_max"] = 0.0
-        except Exception:
-            profile["num_abs_corr_mean"] = 0.0
-            profile["num_abs_corr_max"] = 0.0
-    else:
-        profile["num_abs_corr_mean"] = 0.0
-        profile["num_abs_corr_max"] = 0.0
+        nb = GaussianNB()
+        profile["landmark_naive_bayes"] = float(np.mean(cross_val_score(nb, X_proc, y_encoded, cv=3, scoring=scorer)))
+
+        knn = KNeighborsClassifier(n_neighbors=1)
+
+        idx = np.random.choice(len(X_proc), min(len(X_proc), 2000), replace=False)
+        profile["landmark_1nn"] = float(np.mean(cross_val_score(knn, X_proc[idx], y_encoded[idx], cv=3, scoring=scorer)))
+
+        profile["log_feature_sample_ratio"] = float(np.log10(n_features / n_samples))
+
+        profile["class_entropy"] = float(entropy(list(class_props.values())))
+
+        mi = mutual_info_classif(X_proc[idx], y_encoded[idx], discrete_features=False) 
+        profile["mean_mutual_information"] = float(np.mean(mi))
+
+        pca = PCA(n_components=0.95)
+        pca.fit(X_proc[idx])
+        profile["pca_95_components_ratio"] = float(pca.n_components_ / n_features)
+    except Exception as e:
+        profile["landmark_decision_stump"] = 0.5
+        profile["landmark_naive_bayes"] = 0.5
+        profile["landmark_1nn"] = 0.5
 
     return profile
 
@@ -151,19 +161,19 @@ def profile_to_vector(p: Dict[str, Any]) -> np.ndarray:
             return float(v)
         except Exception:
             return float(default)
-
-    n_samples = max(g("n_samples", 1.0), 1.0)
     return np.array(
         [
-            math.log10(n_samples),
-            g("n_features"),
-            g("n_num_features"),
-            g("n_cat_features"),
+            math.log10(max(g("n_samples"), 1.0)),
+            math.log10(max(g("n_features"), 1.0)),
+            math.log10(max(g("cat_cardinality_max"), 1.0)),
             g("missing_fraction_mean"),
-            g("missing_fraction_max"),
-            g("cat_cardinality_median"),
-            g("cat_cardinality_max"),
             min(g("imbalance_ratio", 1.0), 50.0),
+            g("landmark_decision_stump"),
+            g("landmark_naive_bayes"),
+            g("landmark_1nn"),
+            g("mean_mutual_information"),
+            g("class_entropy"),
+            g("pca_95_components_ratio")
         ],
         dtype=float,
     )
@@ -172,21 +182,21 @@ def profile_to_vector(p: Dict[str, Any]) -> np.ndarray:
 # ===================== Stage: portfolio model factory =====================
 
 def build_base_estimator(model_type: str, random_state: int) -> Any:
-    if model_type == "logreg":
+    if model_type == "sklearn.linear_model.LogisticRegression":
         return LogisticRegression(max_iter=1000, solver="lbfgs")
-    if model_type == "linear_svc":
+    if model_type == "sklearn.svm.LinearSVC":
         return LinearSVC(random_state=random_state, max_iter=5000)
-    if model_type == "sgd":
+    if model_type == "sklearn.linear_model.SGDClassifier":
         return SGDClassifier(random_state=random_state, max_iter=2000, tol=1e-3)
-    if model_type == "rf":
+    if model_type == "sklearn.ensemble.RandomForestClassifier":
         return RandomForestClassifier(n_estimators=200, random_state=random_state, n_jobs=-1)
-    if model_type == "extratrees":
+    if model_type == "sklearn.ensemble.ExtraTreesClassifier":
         return ExtraTreesClassifier(n_estimators=200, random_state=random_state, n_jobs=-1)
     raise ValueError(f"Unknown model_type: {model_type}")
 
 
 def needs_dense(model_type: str) -> bool:
-    return model_type in ("rf", "extratrees")
+    return model_type in ("sklearn.ensemble.RandomForestClassifier", "sklearn.ensemble.ExtraTreesClassifier")
 
 
 def normalize_params_for_pipeline(params: Dict[str, Any]) -> Dict[str, Any]:
@@ -246,16 +256,7 @@ def load_models_config(models_config: Union[str, Path, List[Dict[str, Any]], Dic
                 out.append(PortfolioModel(id=mid, model_type=str(m["model_type"]), params=dict(m.get("params") or {})))
                 continue
             cls = str(m.get("class", ""))
-            mapping = {
-                "sklearn.linear_model.LogisticRegression": "logreg",
-                "sklearn.svm.LinearSVC": "linear_svc",
-                "sklearn.linear_model.SGDClassifier": "sgd",
-                "sklearn.ensemble.RandomForestClassifier": "rf",
-                "sklearn.ensemble.ExtraTreesClassifier": "extratrees",
-            }
-            if cls not in mapping:
-                raise ValueError(f"Unsupported model class in models_config: {cls}")
-            out.append(PortfolioModel(id=mid, model_type=mapping[cls], params=dict(m.get("params") or {})))
+            out.append(PortfolioModel(id=mid, model_type = cls, params=dict(m.get("params") or {})))
         return out
 
     raise ValueError("Unsupported models_config format")

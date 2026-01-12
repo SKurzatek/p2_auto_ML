@@ -1,5 +1,5 @@
 {
-  "logreg": {
+  "sklearn.linear_model.LogisticRegression": {
     "model__C": [
       0.001,
       0.01,
@@ -12,7 +12,7 @@
       "balanced"
     ]
   },
-  "linear_svc": {
+  "sklearn.svm.LinearSVC": {
     "model__C": [
       0.01,
       0.1,
@@ -24,7 +24,7 @@
       "balanced"
     ]
   },
-  "sgd": {
+  "sklearn.linear_model.SGDClassifier": {
     "model__loss": [
       "hinge",
       "log_loss"
@@ -45,7 +45,7 @@
       0.5
     ]
   },
-  "rf": {
+  "sklearn.ensemble.RandomForestClassifier": {
     "model__n_estimators": [
       100,
       200
@@ -71,7 +71,7 @@
       0.5
     ]
   },
-  "extratrees": {
+  "sklearn.ensemble.ExtraTreesClassifier": {
     "model__n_estimators": [
       200
     ],

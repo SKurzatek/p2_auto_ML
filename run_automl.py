@@ -7,9 +7,9 @@ from automl import MiniAutoML
 # CSV_PATH = "test_datasets/banknote_authentication.csv"
 # CSV_PATH = "test_datasets/sonar.csv"
 # CSV_PATH = "test_datasets/ionosphere.csv"
-CSV_PATH = "test_datasets/mammographic_mass.csv"
+CSV_PATH = "data/titanic.csv"
 # CSV_PATH = "test_datasets/spambase.csv"
-TARGET_COL = "target"
+TARGET_COL = "Survived"
 
 df = pd.read_csv(CSV_PATH)
 X = df.drop(columns=[TARGET_COL])

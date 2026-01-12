@@ -24,7 +24,7 @@ from sklearn.metrics import (
 from sklearn.linear_model import LogisticRegression, SGDClassifier
 from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier
 from sklearn.svm import LinearSVC
-
+from automl import compute_dataset_profile_xy
 
 # ===================== Helpers from project 1 =====================
 
@@ -121,23 +121,23 @@ def build_two_stage_preprocessor():
 # ===================== Model factory & grids =====================
 
 def build_model(model_type: str, random_state: int) -> Any:
-    if model_type == "logreg":
+    if model_type == "sklearn.linear_model.LogisticRegression":
         return LogisticRegression(max_iter=1000, solver="lbfgs")
 
-    if model_type == "linear_svc":
+    if model_type == "sklearn.svm.LinearSVC":
         return LinearSVC(random_state=random_state, max_iter=5000)
 
-    if model_type == "sgd":
+    if model_type == "sklearn.linear_model.SGDClassifier":
         return SGDClassifier(random_state=random_state, max_iter=2000, tol=1e-3)
 
-    if model_type == "rf":
+    if model_type == "sklearn.ensemble.RandomForestClassifier":
         return RandomForestClassifier(
             n_estimators=200,
             random_state=random_state,
             n_jobs=-1,
         )
 
-    if model_type == "extratrees":
+    if model_type == "sklearn.ensemble.ExtraTreesClassifier":
         return ExtraTreesClassifier(
             n_estimators=200,
             random_state=random_state,
@@ -178,65 +178,65 @@ def count_grid_combinations(param_grid: Dict[str, Any]) -> int:
 
 # ===================== Dataset profiling =====================
 
-def compute_dataset_profile(df: pd.DataFrame, target_col: str) -> Dict[str, Any]:
-    X, y = split_xy(df, target_col)
-    n_samples, n_features = X.shape
+# def compute_dataset_profile(df: pd.DataFrame, target_col: str) -> Dict[str, Any]:
+#     X, y = split_xy(df, target_col)
+#     n_samples, n_features = X.shape
 
-    num_cols = X.select_dtypes(include=[np.number]).columns.tolist()
-    cat_cols = X.select_dtypes(
-        include=["object", "string", "category"]
-    ).columns.tolist()
+#     num_cols = X.select_dtypes(include=[np.number]).columns.tolist()
+#     cat_cols = X.select_dtypes(
+#         include=["object", "string", "category"]
+#     ).columns.tolist()
 
-    missing_per_col = X.isna().mean()
-    missing_overall = float(missing_per_col.mean()) if len(missing_per_col) else 0.0
-    missing_max = float(missing_per_col.max()) if len(missing_per_col) else 0.0
+#     missing_per_col = X.isna().mean()
+#     missing_overall = float(missing_per_col.mean()) if len(missing_per_col) else 0.0
+#     missing_max = float(missing_per_col.max()) if len(missing_per_col) else 0.0
 
-    profile: Dict[str, Any] = {
-        "n_samples": int(n_samples),
-        "n_features": int(n_features),
-        "n_num_features": int(len(num_cols)),
-        "n_cat_features": int(len(cat_cols)),
-        "missing_fraction_mean": missing_overall,
-        "missing_fraction_max": missing_max,
-    }
+#     profile: Dict[str, Any] = {
+#         "n_samples": int(n_samples),
+#         "n_features": int(n_features),
+#         "n_num_features": int(len(num_cols)),
+#         "n_cat_features": int(len(cat_cols)),
+#         "missing_fraction_mean": missing_overall,
+#         "missing_fraction_max": missing_max,
+#     }
 
-    # class distribution
-    vc = y.value_counts(dropna=False)
-    profile["class_counts"] = {
-        str(k): int(v) for k, v in vc.to_dict().items()
-    }
-    profile["class_proportions"] = {
-        str(k): float(v) / float(len(y)) for k, v in vc.to_dict().items()
-    }
+#     # class distribution
+#     vc = y.value_counts(dropna=False)
+#     profile["class_counts"] = {
+#         str(k): int(v) for k, v in vc.to_dict().items()
+#     }
+#     profile["class_proportions"] = {
+#         str(k): float(v) / float(len(y)) for k, v in vc.to_dict().items()
+#     }
 
-    # cardinality of categorical features
-    if cat_cols:
-        card = [X[c].nunique(dropna=True) for c in cat_cols]
-        profile["cat_cardinality_min"] = int(np.min(card))
-        profile["cat_cardinality_median"] = float(np.median(card))
-        profile["cat_cardinality_max"] = int(np.max(card))
-    else:
-        profile["cat_cardinality_min"] = 0
-        profile["cat_cardinality_median"] = 0.0
-        profile["cat_cardinality_max"] = 0
+#     # cardinality of categorical features
+#     if cat_cols:
+#         card = [X[c].nunique(dropna=True) for c in cat_cols]
+#         profile["cat_cardinality_min"] = int(np.min(card))
+#         profile["cat_cardinality_median"] = float(np.median(card))
+#         profile["cat_cardinality_max"] = int(np.max(card))
+#     else:
+#         profile["cat_cardinality_min"] = 0
+#         profile["cat_cardinality_median"] = 0.0
+#         profile["cat_cardinality_max"] = 0
 
-    # prosta korelacja cech numerycznych z targetem (zakodowanym liczbowo)
-    if num_cols:
-        le = LabelEncoder().fit(y.astype(str))
-        y_enc = pd.Series(le.transform(y.astype(str)), index=y.index)
-        corr = X[num_cols].corrwith(y_enc)
-        corr = corr.dropna()
-        if len(corr):
-            profile["num_abs_corr_mean"] = float(corr.abs().mean())
-            profile["num_abs_corr_max"] = float(corr.abs().max())
-        else:
-            profile["num_abs_corr_mean"] = 0.0
-            profile["num_abs_corr_max"] = 0.0
-    else:
-        profile["num_abs_corr_mean"] = 0.0
-        profile["num_abs_corr_max"] = 0.0
+#     # prosta korelacja cech numerycznych z targetem (zakodowanym liczbowo)
+#     if num_cols:
+#         le = LabelEncoder().fit(y.astype(str))
+#         y_enc = pd.Series(le.transform(y.astype(str)), index=y.index)
+#         corr = X[num_cols].corrwith(y_enc)
+#         corr = corr.dropna()
+#         if len(corr):
+#             profile["num_abs_corr_mean"] = float(corr.abs().mean())
+#             profile["num_abs_corr_max"] = float(corr.abs().max())
+#         else:
+#             profile["num_abs_corr_mean"] = 0.0
+#             profile["num_abs_corr_max"] = 0.0
+#     else:
+#         profile["num_abs_corr_mean"] = 0.0
+#         profile["num_abs_corr_max"] = 0.0
 
-    return profile
+#     return profile
 
 
 def stratified_sample_indices(y: pd.Series, max_rows: int, random_state: int) -> np.ndarray:
@@ -293,7 +293,7 @@ def main():
     if args.target_col not in df.columns:
         raise ValueError(f"Target column '{args.target_col}' not found in {dataset_path}")
 
-    dataset_profile = compute_dataset_profile(df, args.target_col)
+    dataset_profile = compute_dataset_profile_xy(df.drop(columns=[args.target_col]), df[args.target_col])
     X_full, y_full = split_xy(df, args.target_col)
 
     # Stage: sampling for CV search (<= 9000 rows)
@@ -346,8 +346,10 @@ def main():
     )
 
     # Stage: fit search
-    search.fit(X, y_enc)
 
+    print("Start")
+    search.fit(X, y_enc)
+    print("Finished")
     # Stage: save cv results
     cv_df = pd.DataFrame(search.cv_results_)
     cv_df.to_csv(out_dir / "cv_results.csv", index=False)
