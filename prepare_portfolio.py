@@ -373,7 +373,7 @@ def build_portfolio(
     # 1) Ensure at least min_per_model_type models per model_type (if available)
     by_type: Dict[str, List[Dict[str, Any]]] = {}
     for m in rich_models:
-        by_type.setdefault(m["model_type"], []).append(m)
+        by_type.setdefault(m["class"], []).append(m)
 
     selected: List[Dict[str, Any]] = []
     selected_sigs: set[str] = set()
@@ -421,7 +421,7 @@ def build_portfolio(
         models_list.append(
             {
                 "name": mid,
-                "class": m["model_type"],
+                "class": m["class"],
                 "params": m["params"],
             }
         )

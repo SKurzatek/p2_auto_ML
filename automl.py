@@ -242,7 +242,7 @@ def load_models_config(models_config: Union[str, Path, List[Dict[str, Any]], Dic
             out.append(
                 PortfolioModel(
                     id=str(m.get("id", "")),
-                    model_type=str(m["model_type"]),
+                    model_type=str(m["class"]),
                     params=dict(m.get("params") or {}),
                 )
             )

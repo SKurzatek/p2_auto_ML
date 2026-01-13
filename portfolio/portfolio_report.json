@@ -1,0 +1,3634 @@
+{
+  "build_info": {
+    "created_at": "2026-01-13T21:35:00",
+    "selection_strategy": "within_delta_per_pair + per_pair_diversify + global_round_robin_diversity",
+    "n_candidates_input": 140,
+    "n_unique_models": 54,
+    "n_selected_models": 50
+  },
+  "preprocessing": {
+    "name": "two_stage_missing_ohe_scale_v1",
+    "note": "Assumes the same preprocessing pipeline as random_search.py."
+  },
+  "dataset_profiles": {
+    "adult": {
+      "n_samples": 48842,
+      "n_features": 14,
+      "n_num_features": 6,
+      "n_cat_features": 8,
+      "missing_fraction_mean": 0.009454684785342825,
+      "missing_fraction_max": 0.05751197739650301,
+      "class_counts": {
+        "<=50K": 37155,
+        ">50K": 11687
+      },
+      "class_proportions": {
+        "<=50K": 0.7607182343065395,
+        ">50K": 0.23928176569346055
+      },
+      "n_classes": 2,
+      "imbalance_ratio": 3.1791734405749983,
+      "landmark_decision_stump": 0.5,
+      "landmark_naive_bayes": 0.7144380721807696,
+      "landmark_1nn": 0.6899499149019434,
+      "log_feature_sample_ratio": -3.5426654036072995,
+      "class_entropy": 0.5502506190603338,
+      "mean_mutual_information": 0.010190504297875677,
+      "pca_95_components_ratio": 2.2857142857142856
+    },
+    "aps_failure": {
+      "n_samples": 76000,
+      "n_features": 170,
+      "n_num_features": 170,
+      "n_cat_features": 0,
+      "missing_fraction_mean": 0.08349032507739938,
+      "missing_fraction_max": 0.8209605263157894,
+      "class_counts": {
+        "neg": 74625,
+        "pos": 1375
+      },
+      "class_proportions": {
+        "neg": 0.9819078947368421,
+        "pos": 0.018092105263157895
+      },
+      "n_classes": 2,
+      "imbalance_ratio": 54.27272727272727,
+      "landmark_decision_stump": 0.5,
+      "landmark_naive_bayes": 0.9250438078644692,
+      "landmark_1nn": 0.6831576861451533,
+      "log_feature_sample_ratio": -2.6503646709025173,
+      "class_entropy": 0.09051803213694737,
+      "mean_mutual_information": 0.01542673041736585,
+      "pca_95_components_ratio": 0.2411764705882353
+    },
+    "bank_marketing": {
+      "n_samples": 45211,
+      "n_features": 16,
+      "n_num_features": 7,
+      "n_cat_features": 9,
+      "missing_fraction_mean": 0.0,
+      "missing_fraction_max": 0.0,
+      "class_counts": {
+        "no": 39922,
+        "yes": 5289
+      },
+      "class_proportions": {
+        "no": 0.8830151954170445,
+        "yes": 0.11698480458295547
+      },
+      "n_classes": 2,
+      "imbalance_ratio": 7.548118737001324,
+      "landmark_decision_stump": 0.5014180374361884,
+      "landmark_naive_bayes": 0.4849779930151647,
+      "landmark_1nn": 0.6359495141003902,
+      "log_feature_sample_ratio": -3.451124130431873,
+      "class_entropy": 0.36087406312356396,
+      "mean_mutual_information": 0.006369710232615373,
+      "pca_95_components_ratio": 1.5
+    },
+    "breast_cancer": {
+      "n_samples": 569,
+      "n_features": 31,
+      "n_num_features": 31,
+      "n_cat_features": 0,
+      "missing_fraction_mean": 0.0,
+      "missing_fraction_max": 0.0,
+      "class_counts": {
+        "B": 357,
+        "M": 212
+      },
+      "class_proportions": {
+        "B": 0.6274165202108963,
+        "M": 0.37258347978910367
+      },
+      "n_classes": 2,
+      "imbalance_ratio": 1.6839622641509435,
+      "landmark_decision_stump": 0.8676608671637669,
+      "landmark_naive_bayes": 0.9206651674754408,
+      "landmark_1nn": 0.9383911311003276,
+      "log_feature_sample_ratio": -1.2637505725607985,
+      "class_entropy": 0.6603163491952275,
+      "mean_mutual_information": 0.20974735470613132,
+      "pca_95_components_ratio": 0.3548387096774194
+    },
+    "credit_default": {
+      "n_samples": 30000,
+      "n_features": 24,
+      "n_num_features": 24,
+      "n_cat_features": 0,
+      "missing_fraction_mean": 0.0,
+      "missing_fraction_max": 0.0,
+      "class_counts": {
+        "0": 23364,
+        "1": 6636
+      },
+      "class_proportions": {
+        "0": 0.7788,
+        "1": 0.2212
+      },
+      "n_classes": 2,
+      "imbalance_ratio": 3.5207956600361663,
+      "landmark_decision_stump": 0.6436349116567954,
+      "landmark_naive_bayes": 0.6748835475235389,
+      "landmark_1nn": 0.5597798979997998,
+      "log_feature_sample_ratio": -3.0969100130080562,
+      "class_entropy": 0.5284225707356826,
+      "mean_mutual_information": 0.014886876793404261,
+      "pca_95_components_ratio": 0.6666666666666666
+    },
+    "santander_small": {
+      "n_samples": 100000,
+      "n_features": 201,
+      "n_num_features": 200,
+      "n_cat_features": 1,
+      "missing_fraction_mean": 0.0,
+      "missing_fraction_max": 0.0,
+      "class_counts": {
+        "0": 89862,
+        "1": 10138
+      },
+      "class_proportions": {
+        "0": 0.89862,
+        "1": 0.10138
+      },
+      "n_classes": 2,
+      "imbalance_ratio": 8.863878477017163,
+      "landmark_decision_stump": 0.5,
+      "landmark_naive_bayes": 0.5,
+      "landmark_1nn": 0.5
+    }
+  },
+  "models_rich": [
+    {
+      "name": null,
+      "signature": "769d63838e218fe5ee3fb6ca812929584f24327002e7afe002a15b918df72c1c",
+      "class": "sklearn.linear_model.LogisticRegression",
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 0.1
+      },
+      "aggregate": {
+        "datasets_supported": 6,
+        "mean_cv_balanced_accuracy": 0.8159305833467118,
+        "max_cv_balanced_accuracy": 0.9690357833274156,
+        "min_cv_balanced_accuracy": 0.6632989085088759
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.8185614762336058,
+          "std_cv_balanced_accuracy": 0.0057512161342532,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.8643410145633528,
+          "std_cv_balanced_accuracy": 0.0047540229339041,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "bank_marketing",
+          "mean_cv_balanced_accuracy": 0.8274912104659178,
+          "std_cv_balanced_accuracy": 0.0068758928539993,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__bank_marketing",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9690357833274156,
+          "std_cv_balanced_accuracy": 0.0162899576306431,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6632989085088759,
+          "std_cv_balanced_accuracy": 0.0069329905744159,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.7528551069811026,
+          "std_cv_balanced_accuracy": 0.0120797500009056,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0001"
+    },
+    {
+      "name": null,
+      "signature": "2503fccadae2bd48b08383a0ab9726434b2bd6b9e04c69db5d4ff9f34b19e1e2",
+      "class": "sklearn.linear_model.LogisticRegression",
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 1.0
+      },
+      "aggregate": {
+        "datasets_supported": 5,
+        "mean_cv_balanced_accuracy": 0.80553133696919,
+        "max_cv_balanced_accuracy": 0.9727837613918808,
+        "min_cv_balanced_accuracy": 0.6638744332637677
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.8179070062667991,
+          "std_cv_balanced_accuracy": 0.0048285947928132,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "bank_marketing",
+          "mean_cv_balanced_accuracy": 0.8248761291418898,
+          "std_cv_balanced_accuracy": 0.0107958637173085,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__bank_marketing",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9727837613918808,
+          "std_cv_balanced_accuracy": 0.0126323263292278,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6638744332637677,
+          "std_cv_balanced_accuracy": 0.007549097075599,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.7482153547816127,
+          "std_cv_balanced_accuracy": 0.0164056521205689,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0002"
+    },
+    {
+      "name": null,
+      "signature": "13f2b9fe4eba1dc782c23aa95fb138844b4f59ff7344e93f5ad2a4abdf4c25ff",
+      "class": "sklearn.linear_model.LogisticRegression",
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 0.01
+      },
+      "aggregate": {
+        "datasets_supported": 5,
+        "mean_cv_balanced_accuracy": 0.7958056944100339,
+        "max_cv_balanced_accuracy": 0.9225905531346306,
+        "min_cv_balanced_accuracy": 0.6627155271971117
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.8087074004542432,
+          "std_cv_balanced_accuracy": 0.0041722273733556,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.9225905531346306,
+          "std_cv_balanced_accuracy": 0.0177160668180577,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "bank_marketing",
+          "mean_cv_balanced_accuracy": 0.8297228755892402,
+          "std_cv_balanced_accuracy": 0.0044952205802685,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__bank_marketing",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6627155271971117,
+          "std_cv_balanced_accuracy": 0.0068782689638069,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.7552921156749441,
+          "std_cv_balanced_accuracy": 0.0132781468717511,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0003"
+    },
+    {
+      "name": null,
+      "signature": "cc9bf53b908baae73daa08580c4ee1089c3f28d86ad4ea456c448445bad1a9e6",
+      "class": "sklearn.linear_model.LogisticRegression",
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 10.0
+      },
+      "aggregate": {
+        "datasets_supported": 4,
+        "mean_cv_balanced_accuracy": 0.818983346572441,
+        "max_cv_balanced_accuracy": 0.9685820807196118,
+        "min_cv_balanced_accuracy": 0.6632663460289513
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.8182591627829764,
+          "std_cv_balanced_accuracy": 0.0046758181834284,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "bank_marketing",
+          "mean_cv_balanced_accuracy": 0.8258257967582242,
+          "std_cv_balanced_accuracy": 0.0113074792446645,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__bank_marketing",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9685820807196118,
+          "std_cv_balanced_accuracy": 0.0117498393263761,
+          "rank_cv_balanced_accuracy": 5,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6632663460289513,
+          "std_cv_balanced_accuracy": 0.0077889528048983,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0004"
+    },
+    {
+      "name": null,
+      "signature": "c818e5f6dbb3f425ff1fa614d254db920a662435f7f4627a17b903c770f75871",
+      "class": "sklearn.linear_model.LogisticRegression",
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 0.001
+      },
+      "aggregate": {
+        "datasets_supported": 3,
+        "mean_cv_balanced_accuracy": 0.7804846336677725,
+        "max_cv_balanced_accuracy": 0.9294167319045228,
+        "min_cv_balanced_accuracy": 0.6495853236097011
+      },
+      "evidence": [
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.9294167319045228,
+          "std_cv_balanced_accuracy": 0.0043223568956205,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6495853236097011,
+          "std_cv_balanced_accuracy": 0.0071885345112304,
+          "rank_cv_balanced_accuracy": 5,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.7624518454890937,
+          "std_cv_balanced_accuracy": 0.010848768238158,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0005"
+    },
+    {
+      "name": null,
+      "signature": "dd875ca57f045474ed1cd1c9db58b2e3f5089d876db62ac57bf75978a9d43bc7",
+      "class": "sklearn.linear_model.LogisticRegression",
+      "params": {
+        "model__class_weight": null,
+        "model__C": 1.0
+      },
+      "aggregate": {
+        "datasets_supported": 1,
+        "mean_cv_balanced_accuracy": 0.9708900461593089,
+        "max_cv_balanced_accuracy": 0.9708900461593089,
+        "min_cv_balanced_accuracy": 0.9708900461593089
+      },
+      "evidence": [
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9708900461593089,
+          "std_cv_balanced_accuracy": 0.0130348872049284,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0006"
+    },
+    {
+      "name": null,
+      "signature": "6432e9384a50563bff898fa557cdfc11eb42f100a50cb8a383eb6348800d21ea",
+      "class": "sklearn.svm.LinearSVC",
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 0.01
+      },
+      "aggregate": {
+        "datasets_supported": 6,
+        "mean_cv_balanced_accuracy": 0.8156486493480664,
+        "max_cv_balanced_accuracy": 0.9727837613918808,
+        "min_cv_balanced_accuracy": 0.6655292744535596
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.8203346687206078,
+          "std_cv_balanced_accuracy": 0.0056019616350988,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.8554764586448652,
+          "std_cv_balanced_accuracy": 0.0137724365115469,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "bank_marketing",
+          "mean_cv_balanced_accuracy": 0.8260715487971056,
+          "std_cv_balanced_accuracy": 0.0089210289212977,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__bank_marketing",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9727837613918808,
+          "std_cv_balanced_accuracy": 0.0145302792675608,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6655292744535596,
+          "std_cv_balanced_accuracy": 0.009688102839598,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.753696184080379,
+          "std_cv_balanced_accuracy": 0.0125364549738747,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0007"
+    },
+    {
+      "name": null,
+      "signature": "0db31c6ae389be9ac0e8759bf9db7f4e6e6fc4923302672fcbc9866206969c48",
+      "class": "sklearn.svm.LinearSVC",
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 0.1
+      },
+      "aggregate": {
+        "datasets_supported": 5,
+        "mean_cv_balanced_accuracy": 0.8054077622750528,
+        "max_cv_balanced_accuracy": 0.9718369037755948,
+        "min_cv_balanced_accuracy": 0.6645988361707155
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.8197141734148073,
+          "std_cv_balanced_accuracy": 0.0067083069332961,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "bank_marketing",
+          "mean_cv_balanced_accuracy": 0.8231192978267345,
+          "std_cv_balanced_accuracy": 0.0112701248145049,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__bank_marketing",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9718369037755948,
+          "std_cv_balanced_accuracy": 0.0127651438603572,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6645988361707155,
+          "std_cv_balanced_accuracy": 0.009406992370875,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.7477696001874121,
+          "std_cv_balanced_accuracy": 0.0176647436507952,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0008"
+    },
+    {
+      "name": null,
+      "signature": "9bb17d8debcb82d3e3c747af7203e65a47b1c1aa60c0c324bdf7e74d47b95cc1",
+      "class": "sklearn.svm.LinearSVC",
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 1.0
+      },
+      "aggregate": {
+        "datasets_supported": 5,
+        "mean_cv_balanced_accuracy": 0.790028354733146,
+        "max_cv_balanced_accuracy": 0.9699826409437016,
+        "min_cv_balanced_accuracy": 0.6647074941817875
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.8186395976098114,
+          "std_cv_balanced_accuracy": 0.0062229416176107,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "bank_marketing",
+          "mean_cv_balanced_accuracy": 0.8230848817862785,
+          "std_cv_balanced_accuracy": 0.0120522455843074,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__bank_marketing",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9699826409437016,
+          "std_cv_balanced_accuracy": 0.0136543182809283,
+          "rank_cv_balanced_accuracy": 5,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6647074941817875,
+          "std_cv_balanced_accuracy": 0.008843031750526,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.6737271591441512,
+          "std_cv_balanced_accuracy": 0.0206403667921565,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0009"
+    },
+    {
+      "name": null,
+      "signature": "67a5369148edc02f45bd1d8a6401c64d8c91dc46a6769256ee966513e9a49493",
+      "class": "sklearn.svm.LinearSVC",
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 10.0
+      },
+      "aggregate": {
+        "datasets_supported": 4,
+        "mean_cv_balanced_accuracy": 0.780513029101164,
+        "max_cv_balanced_accuracy": 0.8230848817862785,
+        "min_cv_balanced_accuracy": 0.6646361776791488
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.8175650218048154,
+          "std_cv_balanced_accuracy": 0.0061136884536876,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.8167660351344135,
+          "std_cv_balanced_accuracy": 0.0050103451602091,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "bank_marketing",
+          "mean_cv_balanced_accuracy": 0.8230848817862785,
+          "std_cv_balanced_accuracy": 0.0120522455843074,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__bank_marketing",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6646361776791488,
+          "std_cv_balanced_accuracy": 0.0089284998757154,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0010"
+    },
+    {
+      "name": null,
+      "signature": "d4a43a33d11696dc5308cc12d8fb10bd4f8b2772efadcbd7f517e8e0336c7ec0",
+      "class": "sklearn.svm.LinearSVC",
+      "params": {
+        "model__class_weight": null,
+        "model__C": 0.01
+      },
+      "aggregate": {
+        "datasets_supported": 2,
+        "mean_cv_balanced_accuracy": 0.8987658514282211,
+        "max_cv_balanced_accuracy": 0.9713437487671124,
+        "min_cv_balanced_accuracy": 0.8261879540893299
+      },
+      "evidence": [
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.8261879540893299,
+          "std_cv_balanced_accuracy": 0.0269997411337117,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9713437487671124,
+          "std_cv_balanced_accuracy": 0.0156712014816429,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0011"
+    },
+    {
+      "name": null,
+      "signature": "63ad816f15a3c175b448ff010f3e7dfd22ff645b398441f37b4eef3537b1f28b",
+      "class": "sklearn.svm.LinearSVC",
+      "params": {
+        "model__class_weight": null,
+        "model__C": 1.0
+      },
+      "aggregate": {
+        "datasets_supported": 1,
+        "mean_cv_balanced_accuracy": 0.9704028090109283,
+        "max_cv_balanced_accuracy": 0.9704028090109283,
+        "min_cv_balanced_accuracy": 0.9704028090109283
+      },
+      "evidence": [
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9704028090109283,
+          "std_cv_balanced_accuracy": 0.0109695539543759,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0012"
+    },
+    {
+      "name": null,
+      "signature": "991489db617e3278c153b3f684cde4025231d687d151010dcdbc597fb9def63b",
+      "class": "sklearn.ensemble.ExtraTreesClassifier",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 2,
+        "model__max_features": 0.5,
+        "model__max_depth": null
+      },
+      "aggregate": {
+        "datasets_supported": 6,
+        "mean_cv_balanced_accuracy": 0.7252495040498604,
+        "max_cv_balanced_accuracy": 0.9586657198090504,
+        "min_cv_balanced_accuracy": 0.5
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.7722493341373324,
+          "std_cv_balanced_accuracy": 0.0178929567384594,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.7901146938580217,
+          "std_cv_balanced_accuracy": 0.0368043262812007,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "bank_marketing",
+          "mean_cv_balanced_accuracy": 0.6824141561778406,
+          "std_cv_balanced_accuracy": 0.0045218508351013,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__bank_marketing",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9586657198090504,
+          "std_cv_balanced_accuracy": 0.0288993878909284,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6480531203169174,
+          "std_cv_balanced_accuracy": 0.0069396556286379,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.5,
+          "std_cv_balanced_accuracy": 0.0,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0013"
+    },
+    {
+      "name": null,
+      "signature": "ff1a1fc2ea06993b8e31e2d060c31e522835e1b6686333f88db367886285183e",
+      "class": "sklearn.ensemble.ExtraTreesClassifier",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.5,
+        "model__max_depth": null
+      },
+      "aggregate": {
+        "datasets_supported": 6,
+        "mean_cv_balanced_accuracy": 0.7238671625526796,
+        "max_cv_balanced_accuracy": 0.961013137649426,
+        "min_cv_balanced_accuracy": 0.5
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.7568185313669532,
+          "std_cv_balanced_accuracy": 0.0118687092119161,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.7931440441426069,
+          "std_cv_balanced_accuracy": 0.0377148978493115,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "bank_marketing",
+          "mean_cv_balanced_accuracy": 0.6889537416151233,
+          "std_cv_balanced_accuracy": 0.0007738599679526,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__bank_marketing",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.961013137649426,
+          "std_cv_balanced_accuracy": 0.0256289360001857,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6432735205419678,
+          "std_cv_balanced_accuracy": 0.0074640615628073,
+          "rank_cv_balanced_accuracy": 5,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.5,
+          "std_cv_balanced_accuracy": 0.0,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0014"
+    },
+    {
+      "name": null,
+      "signature": "698583f4710ca0824f075859df7a34717a394f5a64bc03710609bd187a00a1d4",
+      "class": "sklearn.ensemble.ExtraTreesClassifier",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.5,
+        "model__max_depth": 20
+      },
+      "aggregate": {
+        "datasets_supported": 5,
+        "mean_cv_balanced_accuracy": 0.7701695939417557,
+        "max_cv_balanced_accuracy": 0.961013137649426,
+        "min_cv_balanced_accuracy": 0.6456094344544561
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.766866283058159,
+          "std_cv_balanced_accuracy": 0.0179341572040503,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.7961177924975633,
+          "std_cv_balanced_accuracy": 0.0336742554420891,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "bank_marketing",
+          "mean_cv_balanced_accuracy": 0.6812413220491741,
+          "std_cv_balanced_accuracy": 0.0033741160734483,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__bank_marketing",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.961013137649426,
+          "std_cv_balanced_accuracy": 0.0256289360001857,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6456094344544561,
+          "std_cv_balanced_accuracy": 0.0059411650482111,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0015"
+    },
+    {
+      "name": null,
+      "signature": "a89be571ff8422d244ddd95d53cf6e177947536fd80f23a01ddad8e5cec04269",
+      "class": "sklearn.ensemble.ExtraTreesClassifier",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.5,
+        "model__max_depth": 10
+      },
+      "aggregate": {
+        "datasets_supported": 4,
+        "mean_cv_balanced_accuracy": 0.7870001125090615,
+        "max_cv_balanced_accuracy": 0.961013137649426,
+        "min_cv_balanced_accuracy": 0.6511173525909086
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.7545642007166009,
+          "std_cv_balanced_accuracy": 0.0175999918758966,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.7813057590793105,
+          "std_cv_balanced_accuracy": 0.0261140945554146,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.961013137649426,
+          "std_cv_balanced_accuracy": 0.0256289360001857,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6511173525909086,
+          "std_cv_balanced_accuracy": 0.0072934539284745,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0016"
+    },
+    {
+      "name": null,
+      "signature": "5edb246b108da5cd00bcdfea10840a9b9bde0a741aae8f9f61e3ff09d59f82bc",
+      "class": "sklearn.ensemble.ExtraTreesClassifier",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 2,
+        "model__max_features": 0.5,
+        "model__max_depth": 10
+      },
+      "aggregate": {
+        "datasets_supported": 3,
+        "mean_cv_balanced_accuracy": 0.7879769721326818,
+        "max_cv_balanced_accuracy": 0.9586657198090504,
+        "min_cv_balanced_accuracy": 0.6510791928473068
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.7541860037416884,
+          "std_cv_balanced_accuracy": 0.0192587336921228,
+          "rank_cv_balanced_accuracy": 5,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9586657198090504,
+          "std_cv_balanced_accuracy": 0.0288993878909284,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6510791928473068,
+          "std_cv_balanced_accuracy": 0.0079848938617109,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0017"
+    },
+    {
+      "name": null,
+      "signature": "4fc4120d9fa32c890989ca4259b85a3486abb68e5479fa41f26ccbb74c4abc24",
+      "class": "sklearn.ensemble.ExtraTreesClassifier",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": "sqrt",
+        "model__max_depth": null
+      },
+      "aggregate": {
+        "datasets_supported": 2,
+        "mean_cv_balanced_accuracy": 0.7293328599045252,
+        "max_cv_balanced_accuracy": 0.9586657198090504,
+        "min_cv_balanced_accuracy": 0.5
+      },
+      "evidence": [
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9586657198090504,
+          "std_cv_balanced_accuracy": 0.0288993878909284,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.5,
+          "std_cv_balanced_accuracy": 0.0,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0018"
+    },
+    {
+      "name": null,
+      "signature": "1f5ffb6f55fbd755a21012a2796cbc72a92ba7d0c0a91833ecdf9357bb43f43a",
+      "class": "sklearn.ensemble.RandomForestClassifier",
+      "params": {
+        "model__n_estimators": 100,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 4,
+        "model__max_features": 0.5,
+        "model__max_depth": 10
+      },
+      "aggregate": {
+        "datasets_supported": 5,
+        "mean_cv_balanced_accuracy": 0.6749949394457408,
+        "max_cv_balanced_accuracy": 0.7839965995864991,
+        "min_cv_balanced_accuracy": 0.5
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.7627854583568308,
+          "std_cv_balanced_accuracy": 0.0150658867674884,
+          "rank_cv_balanced_accuracy": 6,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.7839965995864991,
+          "std_cv_balanced_accuracy": 0.0261419078290598,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "bank_marketing",
+          "mean_cv_balanced_accuracy": 0.6803083247024357,
+          "std_cv_balanced_accuracy": 0.0082001155375791,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__bank_marketing",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6478843145829384,
+          "std_cv_balanced_accuracy": 0.0085001266538182,
+          "rank_cv_balanced_accuracy": 5,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.5,
+          "std_cv_balanced_accuracy": 0.0,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0019"
+    },
+    {
+      "name": null,
+      "signature": "4b163ca5160f2cdb8251d30dd816b4d32b66875a6a00da38a3f98d764a0895d9",
+      "class": "sklearn.ensemble.RandomForestClassifier",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 4,
+        "model__max_features": 0.5,
+        "model__max_depth": null
+      },
+      "aggregate": {
+        "datasets_supported": 4,
+        "mean_cv_balanced_accuracy": 0.7230665293247266,
+        "max_cv_balanced_accuracy": 0.7809101606232648,
+        "min_cv_balanced_accuracy": 0.6511909589160668
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.7694044140205084,
+          "std_cv_balanced_accuracy": 0.0079745623335586,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.7809101606232648,
+          "std_cv_balanced_accuracy": 0.0229862302829756,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "bank_marketing",
+          "mean_cv_balanced_accuracy": 0.6907605837390663,
+          "std_cv_balanced_accuracy": 0.0059112359985402,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__bank_marketing",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6511909589160668,
+          "std_cv_balanced_accuracy": 0.0098303559513539,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0020"
+    },
+    {
+      "name": null,
+      "signature": "399ea0ab09aed7d586a0cff74a06e3597fd467257942c782a4d767356df87a22",
+      "class": "sklearn.ensemble.RandomForestClassifier",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": "sqrt",
+        "model__max_depth": 10
+      },
+      "aggregate": {
+        "datasets_supported": 3,
+        "mean_cv_balanced_accuracy": 0.7413383945004113,
+        "max_cv_balanced_accuracy": 0.9460212253915652,
+        "min_cv_balanced_accuracy": 0.5
+      },
+      "evidence": [
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.7779939581096685,
+          "std_cv_balanced_accuracy": 0.0269015189758917,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9460212253915652,
+          "std_cv_balanced_accuracy": 0.027670125651836,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.5,
+          "std_cv_balanced_accuracy": 0.0,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0021"
+    },
+    {
+      "name": null,
+      "signature": "2906cb4559e5d025bc6dee603a977ffde9eec4a16f4aa9049f7ba812a2edb485",
+      "class": "sklearn.ensemble.RandomForestClassifier",
+      "params": {
+        "model__n_estimators": 100,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.5,
+        "model__max_depth": 10
+      },
+      "aggregate": {
+        "datasets_supported": 3,
+        "mean_cv_balanced_accuracy": 0.7412445169171732,
+        "max_cv_balanced_accuracy": 0.780682931545717,
+        "min_cv_balanced_accuracy": 0.6790784890067639
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.7639721301990386,
+          "std_cv_balanced_accuracy": 0.0138096646637474,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.780682931545717,
+          "std_cv_balanced_accuracy": 0.0231514039144851,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "bank_marketing",
+          "mean_cv_balanced_accuracy": 0.6790784890067639,
+          "std_cv_balanced_accuracy": 0.0130231009001157,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__bank_marketing",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0022"
+    },
+    {
+      "name": null,
+      "signature": "08496f08c010c5808690d728ebb63f1ecfa8f5126081b6c7510c768430d9cd99",
+      "class": "sklearn.ensemble.RandomForestClassifier",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 10,
+        "model__min_samples_leaf": 1,
+        "model__max_features": "log2",
+        "model__max_depth": 10
+      },
+      "aggregate": {
+        "datasets_supported": 3,
+        "mean_cv_balanced_accuracy": 0.7391817647302789,
+        "max_cv_balanced_accuracy": 0.9426934153943268,
+        "min_cv_balanced_accuracy": 0.5
+      },
+      "evidence": [
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.7748518787965097,
+          "std_cv_balanced_accuracy": 0.039939127071269,
+          "rank_cv_balanced_accuracy": 6,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9426934153943268,
+          "std_cv_balanced_accuracy": 0.0223745258438594,
+          "rank_cv_balanced_accuracy": 6,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.5,
+          "std_cv_balanced_accuracy": 0.0,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0023"
+    },
+    {
+      "name": null,
+      "signature": "9b1cbb577ca4dc266828a68db2ee926ff56ed1ab1a7a4db152db7d7168538923",
+      "class": "sklearn.ensemble.RandomForestClassifier",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": "log2",
+        "model__max_depth": null
+      },
+      "aggregate": {
+        "datasets_supported": 2,
+        "mean_cv_balanced_accuracy": 0.8582422618281302,
+        "max_cv_balanced_accuracy": 0.9487888112991676,
+        "min_cv_balanced_accuracy": 0.7676957123570928
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.7676957123570928,
+          "std_cv_balanced_accuracy": 0.0107462987112742,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9487888112991676,
+          "std_cv_balanced_accuracy": 0.0265457774239831,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0024"
+    },
+    {
+      "name": null,
+      "signature": "5b6280350efc38d7b4250e1bfee25a1b4963f6e48bb8859c6ed8846d86eeb6c0",
+      "class": "sklearn.linear_model.SGDClassifier",
+      "params": {
+        "model__penalty": "l2",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 1e-05
+      },
+      "aggregate": {
+        "datasets_supported": 4,
+        "mean_cv_balanced_accuracy": 0.7590510697955166,
+        "max_cv_balanced_accuracy": 0.9656744387896004,
+        "min_cv_balanced_accuracy": 0.613116459282075
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.758575245126162,
+          "std_cv_balanced_accuracy": 0.0326558047711313,
+          "rank_cv_balanced_accuracy": 6,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "bank_marketing",
+          "mean_cv_balanced_accuracy": 0.698838135984229,
+          "std_cv_balanced_accuracy": 0.078464656722716,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__bank_marketing",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9656744387896004,
+          "std_cv_balanced_accuracy": 0.0086723614415214,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.613116459282075,
+          "std_cv_balanced_accuracy": 0.0141042616837073,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0025"
+    },
+    {
+      "name": null,
+      "signature": "da6181aeab47e53a57bbeb2a84579f7382204768c63b74cfa4671f3721505786",
+      "class": "sklearn.linear_model.SGDClassifier",
+      "params": {
+        "model__penalty": "l2",
+        "model__loss": "log_loss",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 1e-05
+      },
+      "aggregate": {
+        "datasets_supported": 3,
+        "mean_cv_balanced_accuracy": 0.6890318484591041,
+        "max_cv_balanced_accuracy": 0.7620803315601409,
+        "min_cv_balanced_accuracy": 0.6327961368220131
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.7620803315601409,
+          "std_cv_balanced_accuracy": 0.0435072596108209,
+          "rank_cv_balanced_accuracy": 5,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6327961368220131,
+          "std_cv_balanced_accuracy": 0.0102384025797359,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.6722190769951585,
+          "std_cv_balanced_accuracy": 0.0128634048278117,
+          "rank_cv_balanced_accuracy": 6,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0026"
+    },
+    {
+      "name": null,
+      "signature": "0daad4d0a7901ef4816fc8761af806fd87f3249130ec6201b70fef79413db69e",
+      "class": "sklearn.linear_model.SGDClassifier",
+      "params": {
+        "model__penalty": "elasticnet",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 0.0001
+      },
+      "aggregate": {
+        "datasets_supported": 2,
+        "mean_cv_balanced_accuracy": 0.8664936653074895,
+        "max_cv_balanced_accuracy": 0.9633605554898016,
+        "min_cv_balanced_accuracy": 0.7696267751251774
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.7696267751251774,
+          "std_cv_balanced_accuracy": 0.0231093736251441,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9633605554898016,
+          "std_cv_balanced_accuracy": 0.017642387510253,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0027"
+    },
+    {
+      "name": null,
+      "signature": "63296e197fb917fe52882cb7822045cf091c0ec2100914b2e8da8576e85dcf6d",
+      "class": "sklearn.linear_model.SGDClassifier",
+      "params": {
+        "model__penalty": "elasticnet",
+        "model__loss": "log_loss",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 1e-05
+      },
+      "aggregate": {
+        "datasets_supported": 2,
+        "mean_cv_balanced_accuracy": 0.8654267912729046,
+        "max_cv_balanced_accuracy": 0.962453150274194,
+        "min_cv_balanced_accuracy": 0.768400432271615
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.768400432271615,
+          "std_cv_balanced_accuracy": 0.0264566818454353,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.962453150274194,
+          "std_cv_balanced_accuracy": 0.0114844969341152,
+          "rank_cv_balanced_accuracy": 6,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0028"
+    },
+    {
+      "name": null,
+      "signature": "4709f03e5adb465e7a7daa6c045b3f14cf5e0f970057ce9f707cfa46e5af0ff3",
+      "class": "sklearn.linear_model.SGDClassifier",
+      "params": {
+        "model__penalty": "l1",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 0.0001
+      },
+      "aggregate": {
+        "datasets_supported": 2,
+        "mean_cv_balanced_accuracy": 0.8632990154721067,
+        "max_cv_balanced_accuracy": 0.9629068528819978,
+        "min_cv_balanced_accuracy": 0.7636911780622156
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.7636911780622156,
+          "std_cv_balanced_accuracy": 0.0189277678602487,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9629068528819978,
+          "std_cv_balanced_accuracy": 0.0167230894447118,
+          "rank_cv_balanced_accuracy": 5,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0029"
+    },
+    {
+      "name": null,
+      "signature": "b4f8b3ca272980cdc8a635ad83d52fb3496c4b423880fb674d49f87c629c2449",
+      "class": "sklearn.linear_model.SGDClassifier",
+      "params": {
+        "model__penalty": "l1",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.5,
+        "model__alpha": 1e-05
+      },
+      "aggregate": {
+        "datasets_supported": 2,
+        "mean_cv_balanced_accuracy": 0.7586162786165409,
+        "max_cv_balanced_accuracy": 0.8427293946530412,
+        "min_cv_balanced_accuracy": 0.6745031625800406
+      },
+      "evidence": [
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.8427293946530412,
+          "std_cv_balanced_accuracy": 0.0087820083533301,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.6745031625800406,
+          "std_cv_balanced_accuracy": 0.0147106664309826,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0030"
+    },
+    {
+      "name": null,
+      "signature": "304b62c5009f96f186a7c89f5557da86b8a53573ca72fccf4e8c79dc4fce91ad",
+      "class": "sklearn.linear_model.LogisticRegression",
+      "params": {
+        "model__class_weight": null,
+        "model__C": 10.0
+      },
+      "aggregate": {
+        "datasets_supported": 1,
+        "mean_cv_balanced_accuracy": 0.9704363435515052,
+        "max_cv_balanced_accuracy": 0.9704363435515052,
+        "min_cv_balanced_accuracy": 0.9704363435515052
+      },
+      "evidence": [
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9704363435515052,
+          "std_cv_balanced_accuracy": 0.0165185672818283,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0031"
+    },
+    {
+      "name": null,
+      "signature": "b7264fd75753e03bbbe1e3e1428aaa777181f611cf4f774a97a4fc98853e526a",
+      "class": "sklearn.svm.LinearSVC",
+      "params": {
+        "model__class_weight": null,
+        "model__C": 0.1
+      },
+      "aggregate": {
+        "datasets_supported": 1,
+        "mean_cv_balanced_accuracy": 0.963847792638182,
+        "max_cv_balanced_accuracy": 0.963847792638182,
+        "min_cv_balanced_accuracy": 0.963847792638182
+      },
+      "evidence": [
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.963847792638182,
+          "std_cv_balanced_accuracy": 0.0186569854278844,
+          "rank_cv_balanced_accuracy": 6,
+          "cv_folds": 3,
+          "n_iter_used": 8,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0032"
+    },
+    {
+      "name": null,
+      "signature": "7c2057425ddd5ce8ca9bd2b5e1194f94891508ac8080c853871dfb3622d48749",
+      "class": "sklearn.ensemble.ExtraTreesClassifier",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 10,
+        "model__min_samples_leaf": 2,
+        "model__max_features": "log2",
+        "model__max_depth": 20
+      },
+      "aggregate": {
+        "datasets_supported": 1,
+        "mean_cv_balanced_accuracy": 0.6411627137559404,
+        "max_cv_balanced_accuracy": 0.6411627137559404,
+        "min_cv_balanced_accuracy": 0.6411627137559404
+      },
+      "evidence": [
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6411627137559404,
+          "std_cv_balanced_accuracy": 0.0093633026013053,
+          "rank_cv_balanced_accuracy": 6,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0033"
+    },
+    {
+      "name": null,
+      "signature": "11cac323739fd94bb681858d2b9574b6c1347717f3f0b8afffdde866b71dfd89",
+      "class": "sklearn.ensemble.RandomForestClassifier",
+      "params": {
+        "model__n_estimators": 100,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 4,
+        "model__max_features": "log2",
+        "model__max_depth": null
+      },
+      "aggregate": {
+        "datasets_supported": 2,
+        "mean_cv_balanced_accuracy": 0.7964808087623609,
+        "max_cv_balanced_accuracy": 0.9436402730106128,
+        "min_cv_balanced_accuracy": 0.649321344514109
+      },
+      "evidence": [
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9436402730106128,
+          "std_cv_balanced_accuracy": 0.0260560005943112,
+          "rank_cv_balanced_accuracy": 5,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.649321344514109,
+          "std_cv_balanced_accuracy": 0.0111127750766804,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0034"
+    },
+    {
+      "name": null,
+      "signature": "a0f707dd0f510252796638423e4b373a7b27f1515f6f563a7217771534b3a979",
+      "class": "sklearn.linear_model.SGDClassifier",
+      "params": {
+        "model__penalty": "l1",
+        "model__loss": "hinge",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 1e-05
+      },
+      "aggregate": {
+        "datasets_supported": 2,
+        "mean_cv_balanced_accuracy": 0.7586162786165409,
+        "max_cv_balanced_accuracy": 0.8427293946530412,
+        "min_cv_balanced_accuracy": 0.6745031625800406
+      },
+      "evidence": [
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.8427293946530412,
+          "std_cv_balanced_accuracy": 0.0087820083533301,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.6745031625800406,
+          "std_cv_balanced_accuracy": 0.0147106664309826,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0035"
+    },
+    {
+      "name": null,
+      "signature": "32f5e39575ebb3d04c35957abf64f7073e83fe71d0fae9b8f1cd9eaf09983abc",
+      "class": "sklearn.linear_model.LogisticRegression",
+      "params": {
+        "model__class_weight": null,
+        "model__C": 0.1
+      },
+      "aggregate": {
+        "datasets_supported": 1,
+        "mean_cv_balanced_accuracy": 0.9666489130863614,
+        "max_cv_balanced_accuracy": 0.9666489130863614,
+        "min_cv_balanced_accuracy": 0.9666489130863614
+      },
+      "evidence": [
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9666489130863614,
+          "std_cv_balanced_accuracy": 0.018381592606777,
+          "rank_cv_balanced_accuracy": 6,
+          "cv_folds": 3,
+          "n_iter_used": 10,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0036"
+    },
+    {
+      "name": null,
+      "signature": "11caae368b3689b06e90d87cef0a0364541a3b607c01208490ba6ce7fb2cf559",
+      "class": "sklearn.ensemble.ExtraTreesClassifier",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 2,
+        "model__max_features": "sqrt",
+        "model__max_depth": 10
+      },
+      "aggregate": {
+        "datasets_supported": 1,
+        "mean_cv_balanced_accuracy": 0.5,
+        "max_cv_balanced_accuracy": 0.5,
+        "min_cv_balanced_accuracy": 0.5
+      },
+      "evidence": [
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.5,
+          "std_cv_balanced_accuracy": 0.0,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0037"
+    },
+    {
+      "name": null,
+      "signature": "c6a9300783654c8a641b110652673ab6ca76d4993f1bc1b4c99a38fb7e18b898",
+      "class": "sklearn.ensemble.RandomForestClassifier",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 1,
+        "model__max_features": "sqrt",
+        "model__max_depth": 5
+      },
+      "aggregate": {
+        "datasets_supported": 2,
+        "mean_cv_balanced_accuracy": 0.7237108928078274,
+        "max_cv_balanced_accuracy": 0.9474217856156548,
+        "min_cv_balanced_accuracy": 0.5
+      },
+      "evidence": [
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.9474217856156548,
+          "std_cv_balanced_accuracy": 0.0257003270295775,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.5,
+          "std_cv_balanced_accuracy": 0.0,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0038"
+    },
+    {
+      "name": null,
+      "signature": "949419907e03c97889979db48763c5493513ebea5d9d59b1d45cfcac0a10d220",
+      "class": "sklearn.linear_model.SGDClassifier",
+      "params": {
+        "model__penalty": "l1",
+        "model__loss": "log_loss",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 1e-06
+      },
+      "aggregate": {
+        "datasets_supported": 2,
+        "mean_cv_balanced_accuracy": 0.7539181524623066,
+        "max_cv_balanced_accuracy": 0.8355391395333903,
+        "min_cv_balanced_accuracy": 0.6722971653912229
+      },
+      "evidence": [
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.8355391395333903,
+          "std_cv_balanced_accuracy": 0.0244804493441123,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.6722971653912229,
+          "std_cv_balanced_accuracy": 0.0105279084470675,
+          "rank_cv_balanced_accuracy": 5,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0039"
+    },
+    {
+      "name": null,
+      "signature": "4b17fc33d64d9d8313709c862ab097a96c287a898937a7429ece4cf682cb15ce",
+      "class": "sklearn.ensemble.ExtraTreesClassifier",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 2,
+        "model__max_features": "sqrt",
+        "model__max_depth": 10
+      },
+      "aggregate": {
+        "datasets_supported": 1,
+        "mean_cv_balanced_accuracy": 0.5,
+        "max_cv_balanced_accuracy": 0.5,
+        "min_cv_balanced_accuracy": 0.5
+      },
+      "evidence": [
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.5,
+          "std_cv_balanced_accuracy": 0.0,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0040"
+    },
+    {
+      "name": null,
+      "signature": "fea23d09cf2fa353fd112d62134fc03e0cadc5b17719fe2b532eadb9e277bc65",
+      "class": "sklearn.ensemble.RandomForestClassifier",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 4,
+        "model__max_features": "sqrt",
+        "model__max_depth": null
+      },
+      "aggregate": {
+        "datasets_supported": 2,
+        "mean_cv_balanced_accuracy": 0.7074105162755797,
+        "max_cv_balanced_accuracy": 0.765536999016159,
+        "min_cv_balanced_accuracy": 0.6492840335350003
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.765536999016159,
+          "std_cv_balanced_accuracy": 0.0146317958559902,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__adult",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.6492840335350003,
+          "std_cv_balanced_accuracy": 0.0103730489524455,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0041"
+    },
+    {
+      "name": null,
+      "signature": "778539afa5f951fae20524a3a087847a936ce01986e21b236ea4400f66fdf616",
+      "class": "sklearn.linear_model.SGDClassifier",
+      "params": {
+        "model__penalty": "l2",
+        "model__loss": "log_loss",
+        "model__l1_ratio": 0.5,
+        "model__alpha": 1e-06
+      },
+      "aggregate": {
+        "datasets_supported": 2,
+        "mean_cv_balanced_accuracy": 0.7141261494391207,
+        "max_cv_balanced_accuracy": 0.7535311395258546,
+        "min_cv_balanced_accuracy": 0.6747211593523869
+      },
+      "evidence": [
+        {
+          "dataset_name": "bank_marketing",
+          "mean_cv_balanced_accuracy": 0.7535311395258546,
+          "std_cv_balanced_accuracy": 0.0438894086899748,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__bank_marketing",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.6747211593523869,
+          "std_cv_balanced_accuracy": 0.008565920520821,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0042"
+    },
+    {
+      "name": null,
+      "signature": "7a27c14dd62fb3802ec54c348f29605fec6d2ac37c867b13f92ff4aecb2366cb",
+      "class": "sklearn.ensemble.ExtraTreesClassifier",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 1,
+        "model__max_features": "sqrt",
+        "model__max_depth": 10
+      },
+      "aggregate": {
+        "datasets_supported": 1,
+        "mean_cv_balanced_accuracy": 0.5,
+        "max_cv_balanced_accuracy": 0.5,
+        "min_cv_balanced_accuracy": 0.5
+      },
+      "evidence": [
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.5,
+          "std_cv_balanced_accuracy": 0.0,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0043"
+    },
+    {
+      "name": null,
+      "signature": "5640ceb30b7440da3afada5a31235fb0c220d72943068e7dfa335afc7d06cf0e",
+      "class": "sklearn.ensemble.RandomForestClassifier",
+      "params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 10,
+        "model__min_samples_leaf": 2,
+        "model__max_features": "log2",
+        "model__max_depth": null
+      },
+      "aggregate": {
+        "datasets_supported": 2,
+        "mean_cv_balanced_accuracy": 0.6389406337506953,
+        "max_cv_balanced_accuracy": 0.7778812675013906,
+        "min_cv_balanced_accuracy": 0.5
+      },
+      "evidence": [
+        {
+          "dataset_name": "aps_failure",
+          "mean_cv_balanced_accuracy": 0.7778812675013906,
+          "std_cv_balanced_accuracy": 0.03379921614237,
+          "rank_cv_balanced_accuracy": 5,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__aps_failure",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.5,
+          "std_cv_balanced_accuracy": 0.0,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0044"
+    },
+    {
+      "name": null,
+      "signature": "2c6f95d487dcfd9a3b3efca0ad14636c3c3e8a42b997c0c9e7ce743d07cd87e7",
+      "class": "sklearn.linear_model.SGDClassifier",
+      "params": {
+        "model__penalty": "l2",
+        "model__loss": "log_loss",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 1e-06
+      },
+      "aggregate": {
+        "datasets_supported": 2,
+        "mean_cv_balanced_accuracy": 0.7141261494391207,
+        "max_cv_balanced_accuracy": 0.7535311395258546,
+        "min_cv_balanced_accuracy": 0.6747211593523869
+      },
+      "evidence": [
+        {
+          "dataset_name": "bank_marketing",
+          "mean_cv_balanced_accuracy": 0.7535311395258546,
+          "std_cv_balanced_accuracy": 0.0438894086899748,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__bank_marketing",
+          "grid_path": "config\\model_type_grid.json"
+        },
+        {
+          "dataset_name": "santander_small",
+          "mean_cv_balanced_accuracy": 0.6747211593523869,
+          "std_cv_balanced_accuracy": 0.008565920520821,
+          "rank_cv_balanced_accuracy": 1,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__santander_small",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0045"
+    },
+    {
+      "name": null,
+      "signature": "c2a41a6d347667f3325915eb5453a527391d2a854e3d7cc01ecbf6e3478c8bb0",
+      "class": "sklearn.ensemble.RandomForestClassifier",
+      "params": {
+        "model__n_estimators": 100,
+        "model__min_samples_split": 2,
+        "model__min_samples_leaf": 2,
+        "model__max_features": "log2",
+        "model__max_depth": null
+      },
+      "aggregate": {
+        "datasets_supported": 1,
+        "mean_cv_balanced_accuracy": 0.947388251075078,
+        "max_cv_balanced_accuracy": 0.947388251075078,
+        "min_cv_balanced_accuracy": 0.947388251075078
+      },
+      "evidence": [
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.947388251075078,
+          "std_cv_balanced_accuracy": 0.0256999023272086,
+          "rank_cv_balanced_accuracy": 3,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0046"
+    },
+    {
+      "name": null,
+      "signature": "b46e41bac7a6b83ab7e203ef6af6d65562de1b02a59d0fea8780ff5d0795f102",
+      "class": "sklearn.linear_model.SGDClassifier",
+      "params": {
+        "model__penalty": "l2",
+        "model__loss": "log_loss",
+        "model__l1_ratio": 0.15,
+        "model__alpha": 0.001
+      },
+      "aggregate": {
+        "datasets_supported": 1,
+        "mean_cv_balanced_accuracy": 0.964794650254468,
+        "max_cv_balanced_accuracy": 0.964794650254468,
+        "min_cv_balanced_accuracy": 0.964794650254468
+      },
+      "evidence": [
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.964794650254468,
+          "std_cv_balanced_accuracy": 0.0214614131839641,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0047"
+    },
+    {
+      "name": null,
+      "signature": "d239f8ad8e8a57bfeefccde89f715f5f1c4dcebece8f94c95df032a5745b5b67",
+      "class": "sklearn.ensemble.RandomForestClassifier",
+      "params": {
+        "model__n_estimators": 100,
+        "model__min_samples_split": 10,
+        "model__min_samples_leaf": 4,
+        "model__max_features": "sqrt",
+        "model__max_depth": null
+      },
+      "aggregate": {
+        "datasets_supported": 1,
+        "mean_cv_balanced_accuracy": 0.7639591099696711,
+        "max_cv_balanced_accuracy": 0.7639591099696711,
+        "min_cv_balanced_accuracy": 0.7639591099696711
+      },
+      "evidence": [
+        {
+          "dataset_name": "adult",
+          "mean_cv_balanced_accuracy": 0.7639591099696711,
+          "std_cv_balanced_accuracy": 0.0168681072288766,
+          "rank_cv_balanced_accuracy": 5,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__adult",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0048"
+    },
+    {
+      "name": null,
+      "signature": "bf3a03f6ac7e05c572cbcd700e5f4a3d044f99f37c60451259c9e0b8939f03a9",
+      "class": "sklearn.linear_model.SGDClassifier",
+      "params": {
+        "model__penalty": "l2",
+        "model__loss": "log_loss",
+        "model__l1_ratio": 0.5,
+        "model__alpha": 0.001
+      },
+      "aggregate": {
+        "datasets_supported": 1,
+        "mean_cv_balanced_accuracy": 0.964794650254468,
+        "max_cv_balanced_accuracy": 0.964794650254468,
+        "min_cv_balanced_accuracy": 0.964794650254468
+      },
+      "evidence": [
+        {
+          "dataset_name": "breast_cancer",
+          "mean_cv_balanced_accuracy": 0.964794650254468,
+          "std_cv_balanced_accuracy": 0.0214614131839641,
+          "rank_cv_balanced_accuracy": 2,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 569,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__breast_cancer",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0049"
+    },
+    {
+      "name": null,
+      "signature": "522b380c33500478adefd208a3947364b5364dd0e46ca0b721abaf317c194d21",
+      "class": "sklearn.ensemble.RandomForestClassifier",
+      "params": {
+        "model__n_estimators": 100,
+        "model__min_samples_split": 5,
+        "model__min_samples_leaf": 2,
+        "model__max_features": 0.5,
+        "model__max_depth": 5
+      },
+      "aggregate": {
+        "datasets_supported": 1,
+        "mean_cv_balanced_accuracy": 0.648437871637067,
+        "max_cv_balanced_accuracy": 0.648437871637067,
+        "min_cv_balanced_accuracy": 0.648437871637067
+      },
+      "evidence": [
+        {
+          "dataset_name": "credit_default",
+          "mean_cv_balanced_accuracy": 0.648437871637067,
+          "std_cv_balanced_accuracy": 0.0118002287815187,
+          "rank_cv_balanced_accuracy": 4,
+          "cv_folds": 3,
+          "n_iter_used": 20,
+          "rows_used": 9000,
+          "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__credit_default",
+          "grid_path": "config\\model_type_grid.json"
+        }
+      ],
+      "id": "m0050"
+    }
+  ],
+  "trace": [
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.7722493341373324,
+      "signature": "991489db617e3278c153b3f684cde4025231d687d151010dcdbc597fb9def63b",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.766866283058159,
+      "signature": "698583f4710ca0824f075859df7a34717a394f5a64bc03710609bd187a00a1d4",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.7568185313669532,
+      "signature": "ff1a1fc2ea06993b8e31e2d060c31e522835e1b6686333f88db367886285183e",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.7545642007166009,
+      "signature": "a89be571ff8422d244ddd95d53cf6e177947536fd80f23a01ddad8e5cec04269",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.7541860037416884,
+      "signature": "5edb246b108da5cd00bcdfea10840a9b9bde0a741aae8f9f61e3ff09d59f82bc",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__adult"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.7961177924975633,
+      "signature": "698583f4710ca0824f075859df7a34717a394f5a64bc03710609bd187a00a1d4",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__aps_failure"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.7931440441426069,
+      "signature": "ff1a1fc2ea06993b8e31e2d060c31e522835e1b6686333f88db367886285183e",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__aps_failure"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.7901146938580217,
+      "signature": "991489db617e3278c153b3f684cde4025231d687d151010dcdbc597fb9def63b",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__aps_failure"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.7813057590793105,
+      "signature": "a89be571ff8422d244ddd95d53cf6e177947536fd80f23a01ddad8e5cec04269",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__aps_failure"
+    },
+    {
+      "dataset_name": "bank_marketing",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.6889537416151233,
+      "signature": "ff1a1fc2ea06993b8e31e2d060c31e522835e1b6686333f88db367886285183e",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__bank_marketing"
+    },
+    {
+      "dataset_name": "bank_marketing",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.6824141561778406,
+      "signature": "991489db617e3278c153b3f684cde4025231d687d151010dcdbc597fb9def63b",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__bank_marketing"
+    },
+    {
+      "dataset_name": "bank_marketing",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.6812413220491741,
+      "signature": "698583f4710ca0824f075859df7a34717a394f5a64bc03710609bd187a00a1d4",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__bank_marketing"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.961013137649426,
+      "signature": "a89be571ff8422d244ddd95d53cf6e177947536fd80f23a01ddad8e5cec04269",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.961013137649426,
+      "signature": "698583f4710ca0824f075859df7a34717a394f5a64bc03710609bd187a00a1d4",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.961013137649426,
+      "signature": "ff1a1fc2ea06993b8e31e2d060c31e522835e1b6686333f88db367886285183e",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.9586657198090504,
+      "signature": "4fc4120d9fa32c890989ca4259b85a3486abb68e5479fa41f26ccbb74c4abc24",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.9586657198090504,
+      "signature": "991489db617e3278c153b3f684cde4025231d687d151010dcdbc597fb9def63b",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.9586657198090504,
+      "signature": "5edb246b108da5cd00bcdfea10840a9b9bde0a741aae8f9f61e3ff09d59f82bc",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__breast_cancer"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.6511173525909086,
+      "signature": "a89be571ff8422d244ddd95d53cf6e177947536fd80f23a01ddad8e5cec04269",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.6510791928473068,
+      "signature": "5edb246b108da5cd00bcdfea10840a9b9bde0a741aae8f9f61e3ff09d59f82bc",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.6480531203169174,
+      "signature": "991489db617e3278c153b3f684cde4025231d687d151010dcdbc597fb9def63b",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.6456094344544561,
+      "signature": "698583f4710ca0824f075859df7a34717a394f5a64bc03710609bd187a00a1d4",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.6432735205419678,
+      "signature": "ff1a1fc2ea06993b8e31e2d060c31e522835e1b6686333f88db367886285183e",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.6411627137559404,
+      "signature": "7c2057425ddd5ce8ca9bd2b5e1194f94891508ac8080c853871dfb3622d48749",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__credit_default"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.5,
+      "signature": "11caae368b3689b06e90d87cef0a0364541a3b607c01208490ba6ce7fb2cf559",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.5,
+      "signature": "4fc4120d9fa32c890989ca4259b85a3486abb68e5479fa41f26ccbb74c4abc24",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.5,
+      "signature": "991489db617e3278c153b3f684cde4025231d687d151010dcdbc597fb9def63b",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.5,
+      "signature": "4b17fc33d64d9d8313709c862ab097a96c287a898937a7429ece4cf682cb15ce",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.5,
+      "signature": "ff1a1fc2ea06993b8e31e2d060c31e522835e1b6686333f88db367886285183e",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "mean_cv_balanced_accuracy": 0.5,
+      "signature": "7a27c14dd62fb3802ec54c348f29605fec6d2ac37c867b13f92ff4aecb2366cb",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.ExtraTreesClassifier__santander_small"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.7694044140205084,
+      "signature": "4b163ca5160f2cdb8251d30dd816b4d32b66875a6a00da38a3f98d764a0895d9",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.7676957123570928,
+      "signature": "9b1cbb577ca4dc266828a68db2ee926ff56ed1ab1a7a4db152db7d7168538923",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.765536999016159,
+      "signature": "fea23d09cf2fa353fd112d62134fc03e0cadc5b17719fe2b532eadb9e277bc65",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.7639721301990386,
+      "signature": "2906cb4559e5d025bc6dee603a977ffde9eec4a16f4aa9049f7ba812a2edb485",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.7639591099696711,
+      "signature": "d239f8ad8e8a57bfeefccde89f715f5f1c4dcebece8f94c95df032a5745b5b67",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.7627854583568308,
+      "signature": "1f5ffb6f55fbd755a21012a2796cbc72a92ba7d0c0a91833ecdf9357bb43f43a",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__adult"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.7839965995864991,
+      "signature": "1f5ffb6f55fbd755a21012a2796cbc72a92ba7d0c0a91833ecdf9357bb43f43a",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__aps_failure"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.7809101606232648,
+      "signature": "4b163ca5160f2cdb8251d30dd816b4d32b66875a6a00da38a3f98d764a0895d9",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__aps_failure"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.780682931545717,
+      "signature": "2906cb4559e5d025bc6dee603a977ffde9eec4a16f4aa9049f7ba812a2edb485",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__aps_failure"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.7779939581096685,
+      "signature": "399ea0ab09aed7d586a0cff74a06e3597fd467257942c782a4d767356df87a22",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__aps_failure"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.7778812675013906,
+      "signature": "5640ceb30b7440da3afada5a31235fb0c220d72943068e7dfa335afc7d06cf0e",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__aps_failure"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.7748518787965097,
+      "signature": "08496f08c010c5808690d728ebb63f1ecfa8f5126081b6c7510c768430d9cd99",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__aps_failure"
+    },
+    {
+      "dataset_name": "bank_marketing",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.6907605837390663,
+      "signature": "4b163ca5160f2cdb8251d30dd816b4d32b66875a6a00da38a3f98d764a0895d9",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__bank_marketing"
+    },
+    {
+      "dataset_name": "bank_marketing",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.6803083247024357,
+      "signature": "1f5ffb6f55fbd755a21012a2796cbc72a92ba7d0c0a91833ecdf9357bb43f43a",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__bank_marketing"
+    },
+    {
+      "dataset_name": "bank_marketing",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.6790784890067639,
+      "signature": "2906cb4559e5d025bc6dee603a977ffde9eec4a16f4aa9049f7ba812a2edb485",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__bank_marketing"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.9487888112991676,
+      "signature": "9b1cbb577ca4dc266828a68db2ee926ff56ed1ab1a7a4db152db7d7168538923",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.9474217856156548,
+      "signature": "c6a9300783654c8a641b110652673ab6ca76d4993f1bc1b4c99a38fb7e18b898",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.947388251075078,
+      "signature": "c2a41a6d347667f3325915eb5453a527391d2a854e3d7cc01ecbf6e3478c8bb0",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.9460212253915652,
+      "signature": "399ea0ab09aed7d586a0cff74a06e3597fd467257942c782a4d767356df87a22",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.9436402730106128,
+      "signature": "11cac323739fd94bb681858d2b9574b6c1347717f3f0b8afffdde866b71dfd89",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.9426934153943268,
+      "signature": "08496f08c010c5808690d728ebb63f1ecfa8f5126081b6c7510c768430d9cd99",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__breast_cancer"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.6511909589160668,
+      "signature": "4b163ca5160f2cdb8251d30dd816b4d32b66875a6a00da38a3f98d764a0895d9",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.649321344514109,
+      "signature": "11cac323739fd94bb681858d2b9574b6c1347717f3f0b8afffdde866b71dfd89",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.6492840335350003,
+      "signature": "fea23d09cf2fa353fd112d62134fc03e0cadc5b17719fe2b532eadb9e277bc65",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.648437871637067,
+      "signature": "522b380c33500478adefd208a3947364b5364dd0e46ca0b721abaf317c194d21",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.6478843145829384,
+      "signature": "1f5ffb6f55fbd755a21012a2796cbc72a92ba7d0c0a91833ecdf9357bb43f43a",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.647790181615043,
+      "signature": "b3bf652691ba3c12323f2be68a8b567d21a8cb0dbc9d5d8bdb75c9980d6fa18d",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__credit_default"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.5,
+      "signature": "1f5ffb6f55fbd755a21012a2796cbc72a92ba7d0c0a91833ecdf9357bb43f43a",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.5,
+      "signature": "399ea0ab09aed7d586a0cff74a06e3597fd467257942c782a4d767356df87a22",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.5,
+      "signature": "08496f08c010c5808690d728ebb63f1ecfa8f5126081b6c7510c768430d9cd99",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.5,
+      "signature": "c6a9300783654c8a641b110652673ab6ca76d4993f1bc1b4c99a38fb7e18b898",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.5,
+      "signature": "754805e9b9c8d9f09aeb94347499cece7198998a6195181fa7a1f46d739afac7",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.ensemble.RandomForestClassifier",
+      "mean_cv_balanced_accuracy": 0.5,
+      "signature": "5640ceb30b7440da3afada5a31235fb0c220d72943068e7dfa335afc7d06cf0e",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.ensemble.RandomForestClassifier__santander_small"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.8185614762336058,
+      "signature": "769d63838e218fe5ee3fb6ca812929584f24327002e7afe002a15b918df72c1c",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.8182591627829764,
+      "signature": "cc9bf53b908baae73daa08580c4ee1089c3f28d86ad4ea456c448445bad1a9e6",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.8179070062667991,
+      "signature": "2503fccadae2bd48b08383a0ab9726434b2bd6b9e04c69db5d4ff9f34b19e1e2",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.8087074004542432,
+      "signature": "13f2b9fe4eba1dc782c23aa95fb138844b4f59ff7344e93f5ad2a4abdf4c25ff",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__adult"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.9294167319045228,
+      "signature": "c818e5f6dbb3f425ff1fa614d254db920a662435f7f4627a17b903c770f75871",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__aps_failure"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.9225905531346306,
+      "signature": "13f2b9fe4eba1dc782c23aa95fb138844b4f59ff7344e93f5ad2a4abdf4c25ff",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__aps_failure"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.8643410145633528,
+      "signature": "769d63838e218fe5ee3fb6ca812929584f24327002e7afe002a15b918df72c1c",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__aps_failure"
+    },
+    {
+      "dataset_name": "bank_marketing",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.8297228755892402,
+      "signature": "13f2b9fe4eba1dc782c23aa95fb138844b4f59ff7344e93f5ad2a4abdf4c25ff",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__bank_marketing"
+    },
+    {
+      "dataset_name": "bank_marketing",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.8274912104659178,
+      "signature": "769d63838e218fe5ee3fb6ca812929584f24327002e7afe002a15b918df72c1c",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__bank_marketing"
+    },
+    {
+      "dataset_name": "bank_marketing",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.8258257967582242,
+      "signature": "cc9bf53b908baae73daa08580c4ee1089c3f28d86ad4ea456c448445bad1a9e6",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__bank_marketing"
+    },
+    {
+      "dataset_name": "bank_marketing",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.8248761291418898,
+      "signature": "2503fccadae2bd48b08383a0ab9726434b2bd6b9e04c69db5d4ff9f34b19e1e2",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__bank_marketing"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.9727837613918808,
+      "signature": "2503fccadae2bd48b08383a0ab9726434b2bd6b9e04c69db5d4ff9f34b19e1e2",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.9708900461593089,
+      "signature": "dd875ca57f045474ed1cd1c9db58b2e3f5089d876db62ac57bf75978a9d43bc7",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.9704363435515052,
+      "signature": "304b62c5009f96f186a7c89f5557da86b8a53573ca72fccf4e8c79dc4fce91ad",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.9690357833274156,
+      "signature": "769d63838e218fe5ee3fb6ca812929584f24327002e7afe002a15b918df72c1c",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.9685820807196118,
+      "signature": "cc9bf53b908baae73daa08580c4ee1089c3f28d86ad4ea456c448445bad1a9e6",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.9666489130863614,
+      "signature": "32f5e39575ebb3d04c35957abf64f7073e83fe71d0fae9b8f1cd9eaf09983abc",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__breast_cancer"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.6638744332637677,
+      "signature": "2503fccadae2bd48b08383a0ab9726434b2bd6b9e04c69db5d4ff9f34b19e1e2",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.6632989085088759,
+      "signature": "769d63838e218fe5ee3fb6ca812929584f24327002e7afe002a15b918df72c1c",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.6632663460289513,
+      "signature": "cc9bf53b908baae73daa08580c4ee1089c3f28d86ad4ea456c448445bad1a9e6",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.6627155271971117,
+      "signature": "13f2b9fe4eba1dc782c23aa95fb138844b4f59ff7344e93f5ad2a4abdf4c25ff",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.6495853236097011,
+      "signature": "c818e5f6dbb3f425ff1fa614d254db920a662435f7f4627a17b903c770f75871",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__credit_default"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.7624518454890937,
+      "signature": "c818e5f6dbb3f425ff1fa614d254db920a662435f7f4627a17b903c770f75871",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.7552921156749441,
+      "signature": "13f2b9fe4eba1dc782c23aa95fb138844b4f59ff7344e93f5ad2a4abdf4c25ff",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.7528551069811026,
+      "signature": "769d63838e218fe5ee3fb6ca812929584f24327002e7afe002a15b918df72c1c",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.linear_model.LogisticRegression",
+      "mean_cv_balanced_accuracy": 0.7482153547816127,
+      "signature": "2503fccadae2bd48b08383a0ab9726434b2bd6b9e04c69db5d4ff9f34b19e1e2",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.LogisticRegression__santander_small"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.7785623144108712,
+      "signature": "0ba184841e514fe40aed7adcb8820a2b198591581d438fae4af29904e74f60be",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.7696267751251774,
+      "signature": "0daad4d0a7901ef4816fc8761af806fd87f3249130ec6201b70fef79413db69e",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.768400432271615,
+      "signature": "63296e197fb917fe52882cb7822045cf091c0ec2100914b2e8da8576e85dcf6d",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.7636911780622156,
+      "signature": "4709f03e5adb465e7a7daa6c045b3f14cf5e0f970057ce9f707cfa46e5af0ff3",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.7620803315601409,
+      "signature": "da6181aeab47e53a57bbeb2a84579f7382204768c63b74cfa4671f3721505786",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.758575245126162,
+      "signature": "5b6280350efc38d7b4250e1bfee25a1b4963f6e48bb8859c6ed8846d86eeb6c0",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__adult"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.8427293946530412,
+      "signature": "b4f8b3ca272980cdc8a635ad83d52fb3496c4b423880fb674d49f87c629c2449",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__aps_failure"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.8427293946530412,
+      "signature": "a0f707dd0f510252796638423e4b373a7b27f1515f6f563a7217771534b3a979",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__aps_failure"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.8355391395333903,
+      "signature": "949419907e03c97889979db48763c5493513ebea5d9d59b1d45cfcac0a10d220",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__aps_failure"
+    },
+    {
+      "dataset_name": "bank_marketing",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.7535311395258546,
+      "signature": "778539afa5f951fae20524a3a087847a936ce01986e21b236ea4400f66fdf616",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__bank_marketing"
+    },
+    {
+      "dataset_name": "bank_marketing",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.7535311395258546,
+      "signature": "2c6f95d487dcfd9a3b3efca0ad14636c3c3e8a42b997c0c9e7ce743d07cd87e7",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__bank_marketing"
+    },
+    {
+      "dataset_name": "bank_marketing",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.698838135984229,
+      "signature": "5b6280350efc38d7b4250e1bfee25a1b4963f6e48bb8859c6ed8846d86eeb6c0",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__bank_marketing"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.9656744387896004,
+      "signature": "5b6280350efc38d7b4250e1bfee25a1b4963f6e48bb8859c6ed8846d86eeb6c0",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.964794650254468,
+      "signature": "b46e41bac7a6b83ab7e203ef6af6d65562de1b02a59d0fea8780ff5d0795f102",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.964794650254468,
+      "signature": "bf3a03f6ac7e05c572cbcd700e5f4a3d044f99f37c60451259c9e0b8939f03a9",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.9633605554898016,
+      "signature": "0daad4d0a7901ef4816fc8761af806fd87f3249130ec6201b70fef79413db69e",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.9629068528819978,
+      "signature": "4709f03e5adb465e7a7daa6c045b3f14cf5e0f970057ce9f707cfa46e5af0ff3",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.962453150274194,
+      "signature": "63296e197fb917fe52882cb7822045cf091c0ec2100914b2e8da8576e85dcf6d",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__breast_cancer"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.6327961368220131,
+      "signature": "da6181aeab47e53a57bbeb2a84579f7382204768c63b74cfa4671f3721505786",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.6211366542087976,
+      "signature": "0d2d59610dd0db735037cc5f33d9101d7000d7718a20a2f367174eea6710b436",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.613116459282075,
+      "signature": "5b6280350efc38d7b4250e1bfee25a1b4963f6e48bb8859c6ed8846d86eeb6c0",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__credit_default"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.6747211593523869,
+      "signature": "778539afa5f951fae20524a3a087847a936ce01986e21b236ea4400f66fdf616",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.6747211593523869,
+      "signature": "2c6f95d487dcfd9a3b3efca0ad14636c3c3e8a42b997c0c9e7ce743d07cd87e7",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.6745031625800406,
+      "signature": "b4f8b3ca272980cdc8a635ad83d52fb3496c4b423880fb674d49f87c629c2449",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.6745031625800406,
+      "signature": "a0f707dd0f510252796638423e4b373a7b27f1515f6f563a7217771534b3a979",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.6722971653912229,
+      "signature": "949419907e03c97889979db48763c5493513ebea5d9d59b1d45cfcac0a10d220",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.linear_model.SGDClassifier",
+      "mean_cv_balanced_accuracy": 0.6722190769951585,
+      "signature": "da6181aeab47e53a57bbeb2a84579f7382204768c63b74cfa4671f3721505786",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.linear_model.SGDClassifier__santander_small"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.8203346687206078,
+      "signature": "6432e9384a50563bff898fa557cdfc11eb42f100a50cb8a383eb6348800d21ea",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.8197141734148073,
+      "signature": "0db31c6ae389be9ac0e8759bf9db7f4e6e6fc4923302672fcbc9866206969c48",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.8186395976098114,
+      "signature": "9bb17d8debcb82d3e3c747af7203e65a47b1c1aa60c0c324bdf7e74d47b95cc1",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__adult"
+    },
+    {
+      "dataset_name": "adult",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.8175650218048154,
+      "signature": "67a5369148edc02f45bd1d8a6401c64d8c91dc46a6769256ee966513e9a49493",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__adult"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.8554764586448652,
+      "signature": "6432e9384a50563bff898fa557cdfc11eb42f100a50cb8a383eb6348800d21ea",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__aps_failure"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.8261879540893299,
+      "signature": "d4a43a33d11696dc5308cc12d8fb10bd4f8b2772efadcbd7f517e8e0336c7ec0",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__aps_failure"
+    },
+    {
+      "dataset_name": "aps_failure",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.8167660351344135,
+      "signature": "67a5369148edc02f45bd1d8a6401c64d8c91dc46a6769256ee966513e9a49493",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__aps_failure"
+    },
+    {
+      "dataset_name": "bank_marketing",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.8260715487971056,
+      "signature": "6432e9384a50563bff898fa557cdfc11eb42f100a50cb8a383eb6348800d21ea",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__bank_marketing"
+    },
+    {
+      "dataset_name": "bank_marketing",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.8231192978267345,
+      "signature": "0db31c6ae389be9ac0e8759bf9db7f4e6e6fc4923302672fcbc9866206969c48",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__bank_marketing"
+    },
+    {
+      "dataset_name": "bank_marketing",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.8230848817862785,
+      "signature": "9bb17d8debcb82d3e3c747af7203e65a47b1c1aa60c0c324bdf7e74d47b95cc1",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__bank_marketing"
+    },
+    {
+      "dataset_name": "bank_marketing",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.8230848817862785,
+      "signature": "67a5369148edc02f45bd1d8a6401c64d8c91dc46a6769256ee966513e9a49493",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__bank_marketing"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.9727837613918808,
+      "signature": "6432e9384a50563bff898fa557cdfc11eb42f100a50cb8a383eb6348800d21ea",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.9718369037755948,
+      "signature": "0db31c6ae389be9ac0e8759bf9db7f4e6e6fc4923302672fcbc9866206969c48",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.9713437487671124,
+      "signature": "d4a43a33d11696dc5308cc12d8fb10bd4f8b2772efadcbd7f517e8e0336c7ec0",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.9704028090109283,
+      "signature": "63ad816f15a3c175b448ff010f3e7dfd22ff645b398441f37b4eef3537b1f28b",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.9699826409437016,
+      "signature": "9bb17d8debcb82d3e3c747af7203e65a47b1c1aa60c0c324bdf7e74d47b95cc1",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__breast_cancer"
+    },
+    {
+      "dataset_name": "breast_cancer",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.963847792638182,
+      "signature": "b7264fd75753e03bbbe1e3e1428aaa777181f611cf4f774a97a4fc98853e526a",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__breast_cancer"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.6655292744535596,
+      "signature": "6432e9384a50563bff898fa557cdfc11eb42f100a50cb8a383eb6348800d21ea",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.6647074941817875,
+      "signature": "9bb17d8debcb82d3e3c747af7203e65a47b1c1aa60c0c324bdf7e74d47b95cc1",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.6646361776791488,
+      "signature": "67a5369148edc02f45bd1d8a6401c64d8c91dc46a6769256ee966513e9a49493",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__credit_default"
+    },
+    {
+      "dataset_name": "credit_default",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.6645988361707155,
+      "signature": "0db31c6ae389be9ac0e8759bf9db7f4e6e6fc4923302672fcbc9866206969c48",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__credit_default"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.753696184080379,
+      "signature": "6432e9384a50563bff898fa557cdfc11eb42f100a50cb8a383eb6348800d21ea",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.7477696001874121,
+      "signature": "0db31c6ae389be9ac0e8759bf9db7f4e6e6fc4923302672fcbc9866206969c48",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__santander_small"
+    },
+    {
+      "dataset_name": "santander_small",
+      "model_type": "sklearn.svm.LinearSVC",
+      "mean_cv_balanced_accuracy": 0.6737271591441512,
+      "signature": "9bb17d8debcb82d3e3c747af7203e65a47b1c1aa60c0c324bdf7e74d47b95cc1",
+      "run_item_dir": "C:\\Users\\felip\\Desktop\\p2_auto_ML\\results\\run_20260113_143912\\sklearn.svm.LinearSVC__santander_small"
+    }
+  ]
+}
