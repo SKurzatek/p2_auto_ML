@@ -38,14 +38,70 @@ print("fit_time_sec:", round(t1 - t0, 3))
 print("\nensemble_mode:", automl.ensemble_mode_)
 print("val_best:", automl.validation_score_best_)
 print("val_avg:", automl.validation_score_avg_)
-print("val_mlp_10:", automl.validation_score_mlp_10_)
-print("val_mlp_10_10:", automl.validation_score_mlp_10_10_)
-print("val_mlp_10_10_10:", automl.validation_score_mlp_10_10_10_)
 print("stacker_used:", automl.stacker_ is not None)
 
 print("\n=== chosen models (top 5) ===")
 for i, (pm, _) in enumerate(automl.selected_models_, start=1):
     print(f"{i}. id={pm.id} type={pm.model_type} params={pm.params}")
 
+
+
 print("\n=== new dataset profile (train split) ===")
 print(automl.new_dataset_profile_)
+
+# ... (reszta kodu bez zmian do linii z print("\n=== MiniAutoML results ==="))
+
+print("\n=== MiniAutoML results ===")
+print("dataset:", CSV_PATH)
+print("fit_time_sec:", round(t1 - t0, 3))
+
+# ... (existing code up to print("\n=== MiniAutoML results ==="))
+
+print("\n=== MiniAutoML results ===")
+print("dataset:", CSV_PATH)
+print("fit_time_sec:", round(t1 - t0, 3))
+
+# --- NEW SECTION: DETAILED MODEL PROPOSAL ---
+print("\n>>> SELECTED MODEL PROPOSAL <<<")
+mode = automl.ensemble_mode_
+
+if mode == "best":
+    # Identify the specific single model from the portfolio that won
+    best_pm, _ = automl.selected_models_[automl.best_model_idx_]
+    print(f"Strategy Type: Best Single Model")
+    print(f"Algorithm:     {best_pm.model_type}")
+    print(f"Hyperparameters: {best_pm.params}")
+
+elif mode == "avg":
+    # Describe the simple averaging ensemble
+    print(f"Strategy Type: Simple Averaging Ensemble")
+    print(f"Description:   Combined probabilities from the top {len(automl.selected_models_)} models.")
+
+elif mode is not None and mode.startswith("stacker_"):
+    # Describe the meta-model used for stacking
+    print(f"Strategy Type: Stacking Ensemble")
+    print(f"Meta-learner:  {type(automl.stacker_).__name__}")
+    print(f"Internal ID:   {mode}")
+    # If using a linear meta-learner, show the weights assigned to each base model
+    if hasattr(automl.stacker_, "coef_"):
+        print(f"Base Model Weights: {automl.stacker_.coef_}")
+
+print("-" * 30)
+# --- END OF NEW SECTION ---
+
+print("val_best:", automl.validation_score_best_)
+print("val_avg:", automl.validation_score_avg_)
+
+# Display scores for all tested stackers if the attribute exists
+if hasattr(automl, 'all_stacker_scores_'):
+    print("\nStacker Validation Scores:")
+    for s_name, s_val in automl.all_stacker_scores_.items():
+        print(f" - {s_name}: {round(s_val, 4)}")
+
+# check if predict works:
+
+y_pred = automl.predict(X)
+print("\nPredictions on training data (first 10):", y_pred[:10])
+y_proba = automl.predict_proba(X)
+print("Predicted probabilities on training data (first 10):", y_proba[:10])
+# ... (remaining code for top 5 models and profile)

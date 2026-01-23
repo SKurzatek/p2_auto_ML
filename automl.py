@@ -336,9 +336,6 @@ class MiniAutoML:
 
         self.validation_score_best_: Optional[float] = None
         self.validation_score_avg_: Optional[float] = None
-        self.validation_score_mlp_10_: Optional[float] = None
-        self.validation_score_mlp_10_10_: Optional[float] = None
-        self.validation_score_mlp_10_10_10_: Optional[float] = None
 
     @staticmethod
     def _sigmoid(z: np.ndarray) -> np.ndarray:
@@ -419,37 +416,47 @@ class MiniAutoML:
         y_tr: np.ndarray,
         P_val: np.ndarray,
         y_val: np.ndarray,
-    ) -> Tuple[Optional[str], Optional[MLPClassifier], Dict[str, float]]:
-        candidates = [
-            ("mlp_10", (10,)),
-            ("mlp_10_10", (10, 10)),
-            ("mlp_10_10_10", (10, 10, 10)),
-        ]
+    ) -> Tuple[Optional[str], Optional[BaseEstimator], Dict[str, float]]:
+        """
+        Trenuje zestaw różnorodnych meta-modeli i wybiera ten, 
+        który najlepiej radzi sobie na danych walidacyjnych.
+        """
+        # Słownik kandydatów na meta-model (stacker)
+        candidates = {
+            "stacker_logreg_c1": LogisticRegression(C=1.0, random_state=self.random_state),
+            "stacker_logreg_c01": LogisticRegression(C=0.1, random_state=self.random_state),
+            "stacker_rf_d3": RandomForestClassifier(n_estimators=100, max_depth=3, random_state=self.random_state),
+            "stacker_mlp_10": MLPClassifier(
+                hidden_layer_sizes=(10,), max_iter=400, random_state=self.random_state, 
+                early_stopping=True, validation_fraction=0.2
+            )
+        }
 
         best_name: Optional[str] = None
-        best_model: Optional[MLPClassifier] = None
+        best_model: Optional[BaseEstimator] = None
         scores: Dict[str, float] = {}
 
-        for name, hls in candidates:
-            mlp = MLPClassifier(
-                hidden_layer_sizes=hls,
-                activation="relu",
-                solver="adam",
-                max_iter=400,
-                random_state=self.random_state,
-                early_stopping=True,
-                n_iter_no_change=12,
-                validation_fraction=0.2,
-            )
-            mlp.fit(P_oof, y_tr)
-            p = mlp.predict_proba(P_val)[:, 1]
-            pred = (p >= 0.5).astype(int)
-            s = float(balanced_accuracy_score(y_val, pred))
-            scores[name] = s
+        for name, model in candidates.items():
+            try:
+                # Trenowanie na predykcjach OOF (Out-of-Fold)
+                model.fit(P_oof, y_tr)
+                
+                # Predykcja na zbiorze walidacyjnym
+                if hasattr(model, "predict_proba"):
+                    p = model.predict_proba(P_val)[:, 1]
+                else:
+                    p = model.predict(P_val)
+                
+                pred = (p >= 0.5).astype(int)
+                s = float(balanced_accuracy_score(y_val, pred))
+                scores[name] = s
 
-            if best_name is None or s > scores[best_name]:
-                best_name = name
-                best_model = mlp
+                # Wybór najlepszego na podstawie zbalansowanej dokładności
+                if best_name is None or s > scores[best_name]:
+                    best_name = name
+                    best_model = model
+            except Exception:
+                scores[name] = 0.0
 
         return best_name, best_model, scores
 
