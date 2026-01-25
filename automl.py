@@ -165,9 +165,8 @@ def profile_to_vector(p: Dict[str, Any]) -> np.ndarray:
         [
             math.log10(max(g("n_samples"), 1.0)),
             math.log10(max(g("n_features"), 1.0)),
-            math.log10(max(g("cat_cardinality_max"), 1.0)),
+            math.log10(max(g("n_cat_features"), 1.0)),
             g("missing_fraction_mean"),
-            min(g("imbalance_ratio", 1.0), 50.0),
             g("landmark_decision_stump"),
             g("landmark_naive_bayes"),
             g("landmark_1nn"),
