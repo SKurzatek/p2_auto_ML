@@ -330,7 +330,7 @@ class MiniAutoML:
         self.selected_models_: List[Tuple[PortfolioModel, Pipeline]] = []
         self.best_model_idx_: int = 0
 
-        self.ensemble_mode_: Optional[str] = None  # "best" | "avg" | "mlp_10" | "mlp_10_10" | "mlp_10_10_10"
+        self.ensemble_mode_: Optional[str] = None  # "best" | "avg" | "stacker_logreg_c1" | "stacker_logreg_c01" | "stacker_rf_d3" | "stacker_mlp_10"
         self.stacker_: Optional[MLPClassifier] = None
 
         self.validation_score_best_: Optional[float] = None
@@ -537,24 +537,28 @@ class MiniAutoML:
                 base.fit(X_fold_tr, y_fold_tr)
                 P_oof[hold_idx, i] = self._predict_proba_1d(base, X_fold_hold)
 
-        # Train 3 MLP stackers, score each on validation, keep best MLP
-        best_mlp_name, best_mlp, mlp_scores = self._fit_stackers_and_pick(P_oof, y_tr, P_val, y_val)
-        self.validation_score_mlp_10_ = mlp_scores.get("mlp_10")
-        self.validation_score_mlp_10_10_ = mlp_scores.get("mlp_10_10")
-        self.validation_score_mlp_10_10_10_ = mlp_scores.get("mlp_10_10_10")
+        # Train diverse stackers, score each on validation, keep best stacker
+        best_stacker_name, best_stacker, stacker_scores = self._fit_stackers_and_pick(P_oof, y_tr, P_val, y_val)
+        
+        # Zapisujemy wyniki walidacyjne dla nowych kandydatów
+        self.validation_score_stacker_logreg_c1_ = stacker_scores.get("stacker_logreg_c1")
+        self.validation_score_stacker_logreg_c01_ = stacker_scores.get("stacker_logreg_c01")
+        self.validation_score_stacker_rf_d3_ = stacker_scores.get("stacker_rf_d3")
+        self.validation_score_stacker_mlp_10_ = stacker_scores.get("stacker_mlp_10")
 
-        # Choose final mode among: best, avg, best_mlp
+        # Choose final mode among: best, avg, best_stacker
         mode_scores: Dict[str, float] = {
             "best": float(self.validation_score_best_),
             "avg": float(self.validation_score_avg_),
         }
-        if best_mlp_name is not None and best_mlp is not None:
-            mode_scores[best_mlp_name] = float(mlp_scores[best_mlp_name])
+        if best_stacker_name is not None and best_stacker is not None:
+            mode_scores[best_stacker_name] = float(stacker_scores[best_stacker_name])
 
         self.ensemble_mode_ = max(mode_scores, key=mode_scores.get)
 
-        if self.ensemble_mode_ in ("mlp_10", "mlp_10_10", "mlp_10_10_10"):
-            self.stacker_ = best_mlp
+        # Sprawdzenie czy wygrał jeden z nowych stackerów
+        if self.ensemble_mode_ in ("stacker_logreg_c1", "stacker_logreg_c01", "stacker_rf_d3", "stacker_mlp_10"):
+            self.stacker_ = best_stacker
         else:
             self.stacker_ = None
 
@@ -569,7 +573,7 @@ class MiniAutoML:
         X = pd.DataFrame(X_test).copy() if not isinstance(X_test, pd.DataFrame) else X_test.copy()
         P = np.column_stack([self._predict_proba_1d(m, X) for _, m in self.selected_models_])
 
-        if self.ensemble_mode_ in ("mlp_10", "mlp_10_10", "mlp_10_10_10") and self.stacker_ is not None and P.shape[1] >= 2:
+        if self.ensemble_mode_ in ("stacker_logreg_c1", "stacker_logreg_c01", "stacker_rf_d3", "stacker_mlp_10") and self.stacker_ is not None and P.shape[1] >= 2:
             p1 = self.stacker_.predict_proba(P)[:, 1]
         elif self.ensemble_mode_ == "avg":
             p1 = P.mean(axis=1)
@@ -630,9 +634,10 @@ def _cli():
     print("ensemble_mode:", automl.ensemble_mode_)
     print("val_best:", automl.validation_score_best_)
     print("val_avg:", automl.validation_score_avg_)
-    print("val_mlp_10:", automl.validation_score_mlp_10_)
-    print("val_mlp_10_10:", automl.validation_score_mlp_10_10_)
-    print("val_mlp_10_10_10:", automl.validation_score_mlp_10_10_10_)
+    print("val_stacker_logreg_c1:", automl.validation_score_stacker_logreg_c1_)
+    print("val_stacker_logreg_c01:", automl.validation_score_stacker_logreg_c01_)
+    print("val_stacker_rf_d3:", automl.validation_score_stacker_rf_d3_)
+    print("val_stacker_mlp_10:", automl.validation_score_stacker_mlp_10_)
 
     print("\n=== chosen models (top 5) ===")
     for i, (pm, _) in enumerate(automl.selected_models_, start=1):
